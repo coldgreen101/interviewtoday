@@ -8,7 +8,8 @@ type Props = {
   logos: ImageProps[];
 };
 
-export type Logo3Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type Logo3Props = React.ComponentPropsWithoutRef<"section"> &
+  Partial<Props>;
 
 export const Logo3 = (props: Logo3Props) => {
   const { heading, logos } = {
@@ -16,9 +17,12 @@ export const Logo3 = (props: Logo3Props) => {
     ...props,
   } as Props;
   return (
-    <section id="relume" className="overflow-hidden py-12 md:py-16 lg:py-20">
+    <section
+      id="relume"
+      className="overflow-hidden py-12 md:py-16 lg:py-20 bg-neutral"
+    >
       <div className="container mx-auto mb-8 w-full max-w-lg px-[5%] md:mb-10 lg:mb-12">
-        <h1 className="text-center text-base font-bold leading-[1.2] md:text-md md:leading-[1.2]">
+        <h1 className="text-center text-2xl font-semibold leading-[1.2] md:text-md md:leading-[1.2]">
           {heading}
         </h1>
       </div>
@@ -26,7 +30,10 @@ export const Logo3 = (props: Logo3Props) => {
         {Array(2)
           .fill(0)
           .map((_, index) => (
-            <div key={index} className="flex shrink-0 animate-loop-horizontally items-center">
+            <div
+              key={index}
+              className="flex shrink-0 animate-loop-horizontally items-center"
+            >
               {logos.map((logo, index) => (
                 <img
                   key={index}
@@ -43,15 +50,39 @@ export const Logo3 = (props: Logo3Props) => {
 };
 
 export const Logo3Defaults: Logo3Props = {
-  heading: "Used by the world's most average companies",
+  heading: "Used by the world's best brands",
   logos: [
-    { src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg", alt: "Webflow logo 1" },
-    { src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg", alt: "Relume logo 1" },
-    { src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg", alt: "Webflow logo 2" },
-    { src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg", alt: "Relume logo 2" },
-    { src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg", alt: "Webflow logo 3" },
-    { src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg", alt: "Relume logo 3" },
-    { src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg", alt: "Webflow logo 4" },
-    { src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg", alt: "Relume logo 4" },
+    {
+      src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
+      alt: "Webflow logo 1",
+    },
+    {
+      src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
+      alt: "Relume logo 1",
+    },
+    {
+      src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
+      alt: "Webflow logo 2",
+    },
+    {
+      src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
+      alt: "Relume logo 2",
+    },
+    {
+      src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
+      alt: "Webflow logo 3",
+    },
+    {
+      src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
+      alt: "Relume logo 3",
+    },
+    {
+      src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
+      alt: "Webflow logo 4",
+    },
+    {
+      src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
+      alt: "Relume logo 4",
+    },
   ],
 };
