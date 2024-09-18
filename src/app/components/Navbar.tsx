@@ -116,7 +116,7 @@ export const Navbar14 = (props: Navbar14Props) => {
                   ) : (
                     <a
                       href={navLink.url}
-                      className="relative block py-3 text-center text-md font-medium lg:px-4 lg:py-2 lg:text-left lg:text-base"
+                      className="relative block py-3 text-center text-md font-semibold lg:px-4 lg:py-2 lg:text-left lg:text-base"
                     >
                       {navLink.title}
                     </a>
@@ -153,7 +153,7 @@ const SubMenu = ({
       onMouseLeave={() => !isMobile && setIsDropdownOpen(false)}
     >
       <button
-        className="flex w-full items-center justify-center gap-4 py-3 text-left text-md font-medium lg:flex-none lg:justify-start lg:gap-2 lg:px-4 lg:py-2 lg:text-base"
+        className="flex w-full items-center justify-center gap-4 py-3 text-left text-md font-semibold lg:flex-none lg:justify-start lg:gap-2 lg:px-4 lg:py-2 lg:text-base"
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       >
         <span>{navLink.title}</span>
@@ -214,11 +214,11 @@ export const Navbar14Defaults: Navbar14Props = {
     alt: "Logo image",
   },
   navLinks: [
-    { title: "Link One", url: "#" },
-    { title: "Link Two", url: "#" },
-    { title: "Link Three", url: "#" },
+    { title: "About", url: "#" },
+    { title: "How it works", url: "#" },
+    { title: "Pricing", url: "#" },
     {
-      title: "Link Four",
+      title: "Case studies",
       url: "#",
       subMenuLinks: [
         { title: "Link Five", url: "#" },
@@ -232,12 +232,13 @@ export const Navbar14Defaults: Navbar14Props = {
       title: "Log in",
       variant: "secondary",
       size: "sm",
-      className: "bg-transparent border-black/10 rounded-full",
+      className:
+        "bg-transparent border-black/10 rounded-full py-1.5 font-semibold",
     },
     {
       title: "Sign up",
       size: "sm",
-      className: "bg-primary rounded-full border-none",
+      className: "bg-primary rounded-full border-none py-1.5 font-semibold",
     },
   ],
 };
