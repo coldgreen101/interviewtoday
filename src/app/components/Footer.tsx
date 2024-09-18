@@ -39,7 +39,8 @@ type Props = {
   footerLinks: FooterLink[];
 };
 
-export type Footer4Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type Footer4Props = React.ComponentPropsWithoutRef<"section"> &
+  Partial<Props>;
 
 export const Footer4 = (props: Footer4Props) => {
   const { logo, footerText, columnLinks, footerLinks, socialMediaLinks } = {
@@ -78,7 +79,10 @@ export const Footer4 = (props: Footer4Props) => {
           <p className="mt-8 md:mt-0">{footerText}</p>
           <ul className="grid grid-flow-row grid-cols-[max-content] items-center justify-center justify-items-center gap-x-0 gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0">
             {footerLinks.map((link, index) => (
-              <li key={index} className="underline decoration-black underline-offset-1 ">
+              <li
+                key={index}
+                className="underline decoration-black underline-offset-1 "
+              >
                 <a href={link.url}>{link.title}</a>
               </li>
             ))}
@@ -92,7 +96,7 @@ export const Footer4 = (props: Footer4Props) => {
 export const Footer4Defaults: Footer4Props = {
   logo: {
     url: "#",
-    src: "https://d22po4pjz3o32e.cloudfront.net/logo-image.svg",
+    src: "/logo.svg",
     alt: "Logo image",
   },
   columnLinks: [

@@ -61,7 +61,7 @@ export const Navbar14 = (props: Navbar14Props) => {
     <nav className="fixed inset-0 bottom-auto z-[1000] mx-auto mt-5 flex w-full bg-transparent px-[5%] md:mt-6 lg:mx-[5%] lg:w-auto lg:px-0">
       <div className="mx-auto flex min-h-16 w-full max-w-xxl items-center justify-between gap-x-4 gap-y-4 md:min-h-18">
         <a href={logo.url}>
-          <img src={logo.src} alt={logo.alt} />
+          <img src={logo.src} alt={logo.alt} width={222} />
         </a>
         <button
           ref={buttonRef}
@@ -210,7 +210,7 @@ const SubMenu = ({
 export const Navbar14Defaults: Navbar14Props = {
   logo: {
     url: "#",
-    src: "https://d22po4pjz3o32e.cloudfront.net/logo-image.svg",
+    src: "/logo.svg",
     alt: "Logo image",
   },
   navLinks: [
