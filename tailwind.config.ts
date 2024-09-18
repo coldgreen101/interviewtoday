@@ -13,8 +13,20 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "var(--primary)",
+        headings: "var(--headings)",
+        tagline: "var(--tagline)",
+        altBackground: "var(--alt-background)",
+        cardBackground: "var(--card-background)",
+        cardText: "var(--card-text)",
+        ctaAlt: "var(--cta-alt)",
       },
     },
+    fontSize: {
+      '2xl': '1.5rem',
+      '5xl': '3rem',
+      '6xl': '5rem',
+    }
   },
   plugins: [],
 };
