@@ -71,7 +71,7 @@ export const Header26Defaults: Header26Props = {
     },
   ],
   image: {
-    src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+    src: "/header.png",
     alt: "Relume placeholder image",
   },
 };
