@@ -24,7 +24,8 @@ type Props = {
   buttons: ButtonProps[];
 };
 
-export type Navbar14Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type Navbar14Props = React.ComponentPropsWithoutRef<"section"> &
+  Partial<Props>;
 
 export const Navbar14 = (props: Navbar14Props) => {
   const { logo, navLinks, buttons } = {
@@ -57,8 +58,8 @@ export const Navbar14 = (props: Navbar14Props) => {
   }, []);
 
   return (
-    <nav className="fixed inset-0 bottom-auto z-[1000] mx-auto mt-5 flex w-full bg-white px-[5%] md:mt-6 lg:mx-[5%] lg:w-auto lg:px-0">
-      <div className="mx-auto flex min-h-16 w-full max-w-xxl items-center justify-between gap-x-4 gap-y-4 bg-white md:min-h-18">
+    <nav className="fixed inset-0 bottom-auto z-[1000] mx-auto mt-5 flex w-full bg-transparent px-[5%] md:mt-6 lg:mx-[5%] lg:w-auto lg:px-0">
+      <div className="mx-auto flex min-h-16 w-full max-w-xxl items-center justify-between gap-x-4 gap-y-4 md:min-h-18">
         <a href={logo.url}>
           <img src={logo.src} alt={logo.alt} />
         </a>
@@ -102,11 +103,11 @@ export const Navbar14 = (props: Navbar14Props) => {
             initial="close"
             exit="close"
             transition={{ duration: 0.3 }}
-            className="absolute left-0 right-0 top-0 mx-auto min-w-[200px] justify-self-center bg-white px-[5%] text-center lg:static lg:inset-auto lg:mx-0 lg:px-0 lg:text-left lg:[--translate-y:0%]"
+            className="absolute left-0 right-0 top-0 mx-auto min-w-[200px] justify-self-center px-[5%] text-center lg:static lg:inset-auto lg:mx-0 lg:px-0 lg:text-left lg:[--translate-y:0%]"
           >
             <div
               ref={menuRef}
-              className="flex w-full flex-col border border-t-0 border-black bg-white p-5 md:p-8 lg:w-auto lg:flex-row lg:border-none lg:bg-none lg:p-0"
+              className="flex w-full flex-col border border-t-0 border-black p-5 md:p-8 lg:w-auto lg:flex-row lg:border-none lg:bg-none lg:p-0"
             >
               {navLinks.map((navLink, index) => (
                 <div key={index}>
@@ -115,7 +116,7 @@ export const Navbar14 = (props: Navbar14Props) => {
                   ) : (
                     <a
                       href={navLink.url}
-                      className="relative block py-3 text-center text-md lg:px-4 lg:py-2 lg:text-left lg:text-base"
+                      className="relative block py-3 text-center text-md font-medium lg:px-4 lg:py-2 lg:text-left lg:text-base"
                     >
                       {navLink.title}
                     </a>
@@ -124,7 +125,7 @@ export const Navbar14 = (props: Navbar14Props) => {
               ))}
               <div className="rt-4 mt-4 flex flex-col items-center gap-4 lg:ml-8 lg:mt-0 lg:flex-row">
                 {buttons.map((button, index) => (
-                  <Button key={index} {...button} className="w-full">
+                  <Button key={index} {...button}>
                     {button.title}
                   </Button>
                 ))}
@@ -137,7 +138,13 @@ export const Navbar14 = (props: Navbar14Props) => {
   );
 };
 
-const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean }) => {
+const SubMenu = ({
+  navLink,
+  isMobile,
+}: {
+  navLink: NavLink;
+  isMobile: boolean;
+}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
@@ -146,7 +153,7 @@ const SubMenu = ({ navLink, isMobile }: { navLink: NavLink; isMobile: boolean })
       onMouseLeave={() => !isMobile && setIsDropdownOpen(false)}
     >
       <button
-        className="flex w-full items-center justify-center gap-4 py-3 text-left text-md lg:flex-none lg:justify-start lg:gap-2 lg:px-4 lg:py-2 lg:text-base"
+        className="flex w-full items-center justify-center gap-4 py-3 text-left text-md font-medium lg:flex-none lg:justify-start lg:gap-2 lg:px-4 lg:py-2 lg:text-base"
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       >
         <span>{navLink.title}</span>
@@ -222,13 +229,15 @@ export const Navbar14Defaults: Navbar14Props = {
   ],
   buttons: [
     {
-      title: "Button",
+      title: "Log in",
       variant: "secondary",
       size: "sm",
+      className: "bg-transparent border-black/10 rounded-full",
     },
     {
-      title: "Button",
+      title: "Sign up",
       size: "sm",
+      className: "bg-primary rounded-full border-none",
     },
   ],
 };
@@ -275,4 +284,3 @@ const bottomLineVariants = {
     transition: { duration: 0.2 },
   },
 };
-
