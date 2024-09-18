@@ -29,10 +29,9 @@ export const Stats33 = (props: Stats33Props) => {
       <div className="container">
         <div className="mb-12 w-full max-w-lg md:mb-18 lg:mb-20">
           <p className="mb-3 font-bold md:mb-4 text-primary">{tagline}</p>
-          <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+          <h1 className="mb-5 text-5xl font-semibold md:mb-6 md:text-5xl lg:text-5xl">
             {heading}
           </h1>
-          <p className="md:text-md">{description}</p>
         </div>
         <Stat {...stat} />
       </div>
