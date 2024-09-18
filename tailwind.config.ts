@@ -5,7 +5,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@relume_io/relume-ui/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@relume_io/relume-ui/dist/**/*.{js,ts,jsx,tsx}",
   ],
   presets: [require("@relume_io/relume-tailwind")],
   theme: {
@@ -20,13 +20,14 @@ const config: Config = {
         cardBackground: "var(--card-background)",
         cardText: "var(--card-text)",
         ctaAlt: "var(--cta-alt)",
+        neutral: "#f9f9f9",
       },
     },
     fontSize: {
-      '2xl': '1.5rem',
-      '5xl': '3rem',
-      '6xl': '5rem',
-    }
+      "2xl": "1.5rem",
+      "5xl": "3rem",
+      "6xl": "5rem",
+    },
   },
   plugins: [],
 };
