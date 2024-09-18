@@ -37,7 +37,7 @@ export const Layout27 = (props: Layout27Props) => {
             <div className="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
               {stats.map((stat, index) => (
                 <div key={index}>
-                  <h3 className="mb-2 text-5xl font-semibold md:text-7xl lg:text-8xl">
+                  <h3 className="mb-2 text-4xl font-semibold md:text-4xl lg:text-4xl">
                     {stat.title}
                   </h3>
                   <p>{stat.description}</p>
