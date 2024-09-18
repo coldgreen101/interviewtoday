@@ -13,7 +13,8 @@ type Props = {
   image: ImageProps;
 };
 
-export type Header26Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type Header26Props = React.ComponentPropsWithoutRef<"section"> &
+  Partial<Props>;
 
 export const Header26 = (props: Header26Props) => {
   const { heading, description, buttons, image } = {
@@ -26,10 +27,12 @@ export const Header26 = (props: Header26Props) => {
         <div className="flex flex-col items-center">
           <div className="rb-12 mb-12 text-center md:mb-18 lg:mb-20">
             <div className="w-full max-w-lg">
-              <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
+              <h1 className="mb-5 text-6xl font-semibold text-black md:mb-6 md:text-9xl lg:text-10xl leading-tight">
                 {heading}
               </h1>
-              <p className="md:text-md">{description}</p>
+              <div className="max-w-md mx-auto">
+                <p className="text-2xl">{description}</p>
+              </div>
               <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
                 {buttons.map((button, index) => (
                   <Button key={index} {...button}>
@@ -40,7 +43,11 @@ export const Header26 = (props: Header26Props) => {
             </div>
           </div>
           <div>
-            <img src={image.src} className="size-full object-cover" alt={image.alt} />
+            <img
+              src={image.src}
+              className="size-full object-cover"
+              alt={image.alt}
+            />
           </div>
         </div>
       </div>
@@ -49,10 +56,20 @@ export const Header26 = (props: Header26Props) => {
 };
 
 export const Header26Defaults: Header26Props = {
-  heading: "Medium length hero heading goes here",
+  heading: "Fastest way to interview and hire",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
-  buttons: [{ title: "Button" }, { title: "Button", variant: "secondary" }],
+    "Overcome hiring complexities using our AI-driven platform to connect with the most qualified candidates faster than ever before.",
+  buttons: [
+    {
+      title: "Interview today",
+      className: "bg-primary rounded-full border-none font-semibold",
+    },
+    {
+      title: "How it works",
+      variant: "secondary",
+      className: "rounded-full border-black/10 font-semibold",
+    },
+  ],
   image: {
     src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
     alt: "Relume placeholder image",
