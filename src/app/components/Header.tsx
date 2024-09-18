@@ -27,7 +27,7 @@ export const Header26 = (props: Header26Props) => {
         <div className="flex flex-col items-center">
           <div className="rb-12 mb-12 text-center md:mb-18 lg:mb-20">
             <div className="w-full max-w-lg">
-              <h1 className="mb-5 text-6xl font-semibold text-black md:mb-6 md:text-9xl lg:text-10xl leading-tight">
+              <h1 className="mb-5 text-8xl font-semibold text-black md:mb-6 md:text-9xl lg:text-10xl leading-tight">
                 {heading}
               </h1>
               <div className="max-w-md mx-auto">
