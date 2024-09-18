@@ -53,35 +53,35 @@ export const Logo3Defaults: Logo3Props = {
   heading: "Used by the world's best brands",
   logos: [
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
+      src: "/logo1.svg",
       alt: "Webflow logo 1",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
+      src: "/logo2.svg",
       alt: "Relume logo 1",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
+      src: "/logo3.svg",
       alt: "Webflow logo 2",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
+      src: "/logo4.svg",
       alt: "Relume logo 2",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
+      src: "/logo5.svg",
       alt: "Webflow logo 3",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
+      src: "/logo6.svg",
       alt: "Relume logo 3",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
+      src: "/logo7.svg",
       alt: "Webflow logo 4",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg",
+      src: "/logo8.svg",
       alt: "Relume logo 4",
     },
   ],
