@@ -8,7 +8,7 @@ type ImageProps = {
 };
 
 type SectionProps = {
-  icon: ImageProps;
+  image: ImageProps;
   heading: string;
   description: string;
 };
@@ -34,11 +34,12 @@ export const Layout242 = (props: Layout242Props) => {
         <div className="grid grid-cols-1 items-center text-center gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
           {sections.map((section, index) => (
             <div key={index}>
-              <div className="rb-5 mb-5 md:mb-6">
+              <div className="rb-5 mb-5 md:mb-6 h-full">
                 <img
-                  src={section.icon.src}
-                  className="mx-auto size-12"
-                  alt={section.icon.alt}
+                  src={section.image.src}
+                  className="mx-auto max-w-full object-cover"
+                  alt={section.image.alt}
+                  width={252}
                 />
               </div>
               <h3 className="mb-5 font-bold md:mb-6 md:text-2xl text-headings">
@@ -59,8 +60,8 @@ export const Layout242Defaults: Layout242Props = {
   heading: "How it works",
   sections: [
     {
-      icon: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+      image: {
+        src: "/signup.png",
         alt: "Relume logo 1",
       },
       heading: "Create an account",
@@ -68,8 +69,8 @@ export const Layout242Defaults: Layout242Props = {
         "Set up your account quickly and easily. There's no lengthy onboarding process, no commitments, and absolutely no hidden fees. Just provide some basic information to get started.",
     },
     {
-      icon: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+      image: {
+        src: "/activate.png",
         alt: "Relume logo 2",
       },
       heading: "Activate your job",
@@ -77,8 +78,8 @@ export const Layout242Defaults: Layout242Props = {
         "Tell us what roles you need filled, and our AI-enabled platform will do the rest. Along the way, you’ll receive helpful tips as it effortlessly handles the recruitment process for you.",
     },
     {
-      icon: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+      image: {
+        src: "/chat.png",
         alt: "Relume logo 3",
       },
       heading: "Interview today",
