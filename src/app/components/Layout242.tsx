@@ -11,7 +11,6 @@ type SectionProps = {
   icon: ImageProps;
   heading: string;
   description: string;
-  button: ButtonProps;
 };
 
 type Props = {
@@ -19,34 +18,35 @@ type Props = {
   sections: SectionProps[];
 };
 
-export type Layout242Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type Layout242Props = React.ComponentPropsWithoutRef<"section"> &
+  Partial<Props>;
 
 export const Layout242 = (props: Layout242Props) => {
   const { heading, sections } = { ...props, ...Layout242Defaults } as Props;
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container flex flex-col items-start">
-        <div className="rb-12 mb-12 w-full max-w-lg md:mb-18 lg:mb-20">
-          <h3 className="text-4xl font-bold leading-[1.2] md:text-5xl lg:text-6xl">{heading}</h3>
+      <div className="container flex flex-col items-center">
+        <div className="rb-12 mb-12 text-center w-full max-w-lg md:mb-18 lg:mb-20">
+          <h3 className="font-semibold leading-[1.2] md:text-5xl text-headings">
+            {heading}
+          </h3>
         </div>
-        <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
+        <div className="grid grid-cols-1 items-center text-center gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
           {sections.map((section, index) => (
             <div key={index}>
               <div className="rb-5 mb-5 md:mb-6">
-                <img src={section.icon.src} className="size-12" alt={section.icon.alt} />
+                <img
+                  src={section.icon.src}
+                  className="mx-auto size-12"
+                  alt={section.icon.alt}
+                />
               </div>
-              <h3 className="mb-5 text-xl font-bold md:mb-6 md:text-2xl">{section.heading}</h3>
-              <p className="mb-5 md:mb-6">{section.description}</p>
-              <div className="mt-6 flex items-center gap-4 md:mt-8">
-                <Button
-                  variant={section.button.variant}
-                  size={section.button.size}
-                  iconRight={section.button.iconRight}
-                  iconLeft={section.button.iconLeft}
-                >
-                  {section.button.title}
-                </Button>
-              </div>
+              <h3 className="mb-5 font-bold md:mb-6 md:text-2xl text-headings">
+                {section.heading}
+              </h3>
+              <p className="mb-5 md:mb-6 text-headings">
+                {section.description}
+              </p>
             </div>
           ))}
         </div>
@@ -56,52 +56,34 @@ export const Layout242 = (props: Layout242Props) => {
 };
 
 export const Layout242Defaults: Layout242Props = {
-  heading: "Long heading is what you see here in this feature section",
+  heading: "How it works",
   sections: [
     {
       icon: {
         src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
         alt: "Relume logo 1",
       },
-      heading: "Long heading is what you see here in this feature section",
+      heading: "Create an account",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
-      button: {
-        title: "Button",
-        variant: "link",
-        size: "link",
-        iconRight: <RxChevronRight />,
-      },
+        "Set up your account quickly and easily. There's no lengthy onboarding process, no commitments, and absolutely no hidden fees. Just provide some basic information to get started.",
     },
     {
       icon: {
         src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
         alt: "Relume logo 2",
       },
-      heading: "Long heading is what you see here in this feature section",
+      heading: "Activate your job",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
-      button: {
-        title: "Button",
-        variant: "link",
-        size: "link",
-        iconRight: <RxChevronRight />,
-      },
+        "Tell us what roles you need filled, and our AI-enabled platform will do the rest. Along the way, you’ll receive helpful tips as it effortlessly handles the recruitment process for you.",
     },
     {
       icon: {
         src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
         alt: "Relume logo 3",
       },
-      heading: "Long heading is what you see here in this feature section",
+      heading: "Interview today",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
-      button: {
-        title: "Button",
-        variant: "link",
-        size: "link",
-        iconRight: <RxChevronRight />,
-      },
+        "Receive text notifications about your scheduled interviews with qualified candidates, maybe even today. Hire with ease—you only pay when candidates show up.",
     },
   ],
 };
