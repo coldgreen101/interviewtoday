@@ -9,16 +9,18 @@ type StatsProps = {
 };
 
 type Props = {
+  tagline: string;
   heading: string;
   description: string;
   stats: StatsProps[];
   image: ImageProps;
 };
 
-export type Layout27Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type Layout27Props = React.ComponentPropsWithoutRef<"section"> &
+  Partial<Props>;
 
 export const Layout27 = (props: Layout27Props) => {
-  const { heading, description, image, stats } = {
+  const { tagline, heading, description, image, stats } = {
     ...Layout27Defaults,
     ...props,
   } as Props;
@@ -27,21 +29,28 @@ export const Layout27 = (props: Layout27Props) => {
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
-            <h2 className="rb-5 mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
+            <p className="mb-3 font-bold md:mb-4 text-primary">{tagline}</p>
+            <h2 className="rb-5 mb-5 text-5xl font-semibold leading-[1.2] md:mb-6">
               {heading}
             </h2>
-            <p className="mb-6 md:mb-8 md:text-md">{description}</p>
+            <p className="mb-6 md:mb-8 text-lg">{description}</p>
             <div className="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
               {stats.map((stat, index) => (
                 <div key={index}>
-                  <h3 className="mb-2 text-5xl font-bold md:text-7xl lg:text-8xl">{stat.title}</h3>
+                  <h3 className="mb-2 text-5xl font-semibold md:text-7xl lg:text-8xl">
+                    {stat.title}
+                  </h3>
                   <p>{stat.description}</p>
                 </div>
               ))}
             </div>
           </div>
           <div>
-            <img src={image.src} className="w-full object-cover" alt={image.alt} />
+            <img
+              src={image.src}
+              className="w-full object-cover"
+              alt={image.alt}
+            />
           </div>
         </div>
       </div>
@@ -50,17 +59,26 @@ export const Layout27 = (props: Layout27Props) => {
 };
 
 export const Layout27Defaults: Layout27Props = {
-  heading: "Long heading is what you see here in this feature section",
+  tagline: "Key achievements",
+  heading: "Hiring transformed",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+    "From speeding up recruitment to slashing costs and boosting productivity, here’s how we’ve made a difference:",
   stats: [
     {
       title: "50%",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      description: "faster hiring",
     },
     {
       title: "50%",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      description: "reduction in recruitment costs",
+    },
+    {
+      title: "50%",
+      description: "saving on average per hiring per month",
+    },
+    {
+      title: "50%",
+      description: "manager satisfaction",
     },
   ],
   image: {
@@ -68,4 +86,3 @@ export const Layout27Defaults: Layout27Props = {
     alt: "Relume placeholder image",
   },
 };
-
