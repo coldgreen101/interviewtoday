@@ -88,7 +88,7 @@ export const Layout253Defaults: Layout253Props = {
   features: [
     {
       icon: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+        src: "/coin.svg",
         alt: "Relume logo 1",
       },
       heading: "Medium length section heading goes here",
@@ -97,7 +97,7 @@ export const Layout253Defaults: Layout253Props = {
     },
     {
       icon: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+        src: "/package.svg",
         alt: "Relume logo 2",
       },
       heading: "Medium length section heading goes here",
@@ -106,7 +106,7 @@ export const Layout253Defaults: Layout253Props = {
     },
     {
       icon: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+        src: "/ghost.svg",
         alt: "Relume logo 3",
       },
       heading: "Medium length section heading goes here",
@@ -115,7 +115,7 @@ export const Layout253Defaults: Layout253Props = {
     },
     {
       icon: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+        src: "/hire.svg",
         alt: "Relume logo 4",
       },
       heading: "Medium length section heading goes here",
