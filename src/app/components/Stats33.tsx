@@ -20,7 +20,7 @@ export type Stats33Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
 export const Stats33 = (props: Stats33Props) => {
-  const { tagline, heading, description, stat } = {
+  const { tagline, heading, stat } = {
     ...Stats33Defaults,
     ...props,
   } as Props;
