@@ -58,7 +58,7 @@ export const Navbar14 = (props: Navbar14Props) => {
   }, []);
 
   return (
-    <nav className="sticky inset-0 bottom-auto z-[1000] mx-auto mt-5 flex w-full bg-white/70 backdrop-saturate-150 backdrop-blur-lg transition-shadow px-[5%] md:mt-6 lg:mx-[5%] lg:w-auto lg:px-0">
+    <nav className="sticky inset-0 bottom-auto z-[1000] flex w-full bg-white/70 backdrop-saturate-150 backdrop-blur-lg transition-shadow px-0 md:mt-6">
       <div className="mx-auto flex min-h-16 w-full max-w-xxl items-center justify-between gap-x-4 gap-y-4 md:min-h-18">
         <a href={logo.url}>
           <img src={logo.src} alt={logo.alt} width={222} />
