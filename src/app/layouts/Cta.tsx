@@ -65,12 +65,13 @@ export const Cta57Defaults: Cta57Props = {
     {
       title: "Interview today",
       className:
-        "bg-ctaAlt border-none rounded-full font-semibold text-altBackground",
+        "bg-ctaAlt border-none rounded-full font-semibold text-altBackground transition hover:bg-cardText",
     },
     {
       title: "How it works",
       variant: "secondary",
-      className: "rounded-full border-white text-white font-semibold",
+      className:
+        "rounded-full border-white text-white font-semibold transition hover:bg-white hover:text-black",
     },
   ],
 };

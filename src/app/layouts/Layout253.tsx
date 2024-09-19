@@ -79,12 +79,14 @@ export const Layout253Defaults: Layout253Props = {
     {
       title: "Interview today",
       variant: "secondary",
-      className: "border-none bg-ctaAlt rounded-full text-white font-semibold",
+      className:
+        "border-none bg-ctaAlt rounded-full text-white font-semibold transition hover:bg-primary",
     },
     {
       title: "How it works",
       variant: "secondary",
-      className: "rounded-full border-black/10 font-semibold",
+      className:
+        "rounded-full border-black/10 font-semibold transition hover:bg-black hover:text-white",
     },
   ],
   features: [

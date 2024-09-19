@@ -62,12 +62,14 @@ export const Header26Defaults: Header26Props = {
   buttons: [
     {
       title: "Interview today",
-      className: "bg-primary rounded-full border-none font-semibold",
+      className:
+        "bg-primary rounded-full border-none font-semibold transition hover:bg-[#e80279]",
     },
     {
       title: "How it works",
       variant: "secondary",
-      className: "rounded-full border-black/10 font-semibold",
+      className:
+        "rounded-full border-black/10 font-semibold transition hover:bg-black hover:text-white",
     },
   ],
   image: {
