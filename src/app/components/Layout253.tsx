@@ -77,12 +77,15 @@ export const Layout253Defaults: Layout253Props = {
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
   buttons: [
-    { title: "Button", variant: "secondary" },
     {
-      title: "Button",
-      variant: "link",
-      size: "link",
-      iconRight: <RxChevronRight />,
+      title: "Interview today",
+      variant: "secondary",
+      className: "border-none bg-ctaAlt rounded-full text-white font-semibold",
+    },
+    {
+      title: "How it works",
+      variant: "secondary",
+      className: "rounded-full border-black/10 font-semibold",
     },
   ],
   features: [
