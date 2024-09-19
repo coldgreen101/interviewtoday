@@ -41,7 +41,7 @@ export const Stats33 = (props: Stats33Props) => {
 
 const Stat = (stat: Stat) => {
   return (
-    <div className="grid grid-cols-3 gap-x-6 gap-y-7 sm:gap-x-6 sm:gap-y-6 lg:gap-x-8 lg:gap-y-8">
+    <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-7 sm:gap-x-6 sm:gap-y-6 lg:gap-x-8 lg:gap-y-8">
       <div className="flex w-full flex-col justify-between bg-[#4dc9f07a] bg-opacity-50 text-altBackground p-8 rounded-2xl">
         <p className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
           {stat.statCards[0].percentage}
