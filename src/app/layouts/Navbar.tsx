@@ -37,6 +37,16 @@ export const Navbar14 = (props: Navbar14Props) => {
   const isMobile = useMediaQuery("(max-width: 991px)");
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -58,7 +68,12 @@ export const Navbar14 = (props: Navbar14Props) => {
   }, []);
 
   return (
-    <nav className="sticky inset-0 bottom-auto z-[1000] flex w-full bg-white/70 backdrop-saturate-150 backdrop-blur-lg transition-shadow px-0 md:mt-6">
+    <nav
+      className="sticky inset-0 bottom-auto z-[1000] flex w-full bg-white/70 backdrop-saturate-150 backdrop-blur-lg transition-shadow px-0 md:mt-6"
+      style={{
+        boxShadow: hasScrolled ? "0 3px 12px rgba(0, 0, 0, 0.07)" : "none",
+      }}
+    >
       <div className="mx-auto flex min-h-16 w-full max-w-xxl items-center justify-between gap-x-4 gap-y-4 md:min-h-18">
         <a href={logo.url}>
           <img src={logo.src} alt={logo.alt} width={222} />
