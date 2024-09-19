@@ -29,8 +29,9 @@ export const Cta57 = (props: Cta57Props) => {
           {headers.map((heading, index) => (
             <motion.h1
               key={index}
-              initial={{ x: index % 2 === 0 ? "-50%" : "50%" }}
-              animate={{ x: "0%" }}
+              initial={{ x: index % 2 === 0 ? "50%" : "-50%" }}
+              whileInView={{ x: "0%" }}
+              viewport={{ once: true }}
               transition={{ type: "spring", bounce: 0 }}
               className={clsx(
                 "text-6xl font-bold md:text-9xl lg:text-10xl bg-clip-text text-transparent bg-gradient-to-b from-[var(--card-text)] to-[#9f79f4]",
