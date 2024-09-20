@@ -1,3 +1,6 @@
+"use client";
+import BeforeAfterSlider from "../components/BeforeAfterSlider";
+
 type ImageProps = {
   src: string;
   alt?: string;
@@ -13,21 +16,22 @@ type Props = {
   heading: string;
   description: string;
   stats: StatsProps[];
-  image: ImageProps;
+  beforeImage: ImageProps;
+  afterImage: ImageProps;
 };
 
 export type Layout27Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
 export const Layout27 = (props: Layout27Props) => {
-  const { tagline, heading, description, image, stats } = {
+  const { tagline, heading, description, beforeImage, afterImage, stats } = {
     ...Layout27Defaults,
     ...props,
   } as Props;
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
-        <div className="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
+        <div className="grid grid-cols-1 gap-16 md:grid-flow-row lg:grid-cols-[40%_1fr] md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
             <p className="mb-3 font-bold md:mb-4 text-primary">{tagline}</p>
             <h2 className="rb-5 mb-5 text-5xl font-semibold leading-[1.2] md:mb-6">
@@ -46,10 +50,10 @@ export const Layout27 = (props: Layout27Props) => {
             </div>
           </div>
           <div>
-            <img
-              src={image.src}
-              className="w-full object-cover"
-              alt={image.alt}
+            <BeforeAfterSlider
+              beforeImage={beforeImage.src}
+              afterImage={afterImage.src}
+              start={50}
             />
           </div>
         </div>
@@ -81,8 +85,13 @@ export const Layout27Defaults: Layout27Props = {
       description: "manager satisfaction",
     },
   ],
-  image: {
-    src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
+  beforeImage: {
+    src: "/before.png",
+    alt: "Relume placeholder image",
+  },
+
+  afterImage: {
+    src: "/after.png",
     alt: "Relume placeholder image",
   },
 };
