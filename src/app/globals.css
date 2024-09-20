@@ -1,3 +1,4 @@
+@import url("https://unpkg.com/beerslider/dist/BeerSlider.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
