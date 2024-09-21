@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import BeerSlider from "beerslider";
+import React, { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
@@ -11,16 +11,22 @@ interface BeforeAfterSliderProps {
 const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   beforeImage,
   afterImage,
-
   start = 50,
 }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [BeerSlider, setBeerSlider] = useState<any>(null);
 
   useEffect(() => {
-    if (sliderRef.current) {
+    import("beerslider").then((module) => {
+      setBeerSlider(() => module.default);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (sliderRef.current && BeerSlider) {
       new BeerSlider(sliderRef.current, { start });
     }
-  }, [start]);
+  }, [start, BeerSlider]);
 
   return (
     <div ref={sliderRef} className="beer-slider">
@@ -32,4 +38,6 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   );
 };
 
-export default BeforeAfterSlider;
+export default dynamic(() => Promise.resolve(BeforeAfterSlider), {
+  ssr: false,
+});
