@@ -40,6 +40,21 @@ export const Navbar14 = (props: Navbar14Props) => {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add("overflow-hidden");
+      document.body.classList.remove("overflow-scroll");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+      document.body.classList.add("overflow-scroll");
+    }
+    // Cleanup function
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+      document.body.classList.add("overflow-scroll");
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 0);
     };
@@ -107,7 +122,7 @@ export const Navbar14 = (props: Navbar14Props) => {
           initial="close"
           exit="close"
           animate={isMobileMenuOpen ? "open" : "close"}
-          className="absolute left-0 right-0 top-full w-full overflow-hidden lg:static lg:left-auto lg:right-auto lg:top-auto lg:w-auto lg:overflow-visible lg:[--height:auto]"
+          className="absolute left-0 right-0 sm:h-[100dvh] top-full w-full overflow-hidden lg:static lg:left-auto lg:right-auto lg:top-auto lg:w-auto lg:overflow-visible lg:[--height:auto] sm:bg-white"
         >
           <motion.div
             variants={{
@@ -122,7 +137,7 @@ export const Navbar14 = (props: Navbar14Props) => {
           >
             <div
               ref={menuRef}
-              className="flex w-full flex-col border border-t-0 border-black p-5 md:p-8 lg:w-auto lg:flex-row lg:border-none lg:bg-none lg:p-0"
+              className="flex w-full flex-col border-none border-black p-5 md:p-8 lg:w-auto lg:flex-row lg:border-none lg:bg-none lg:p-0 lg:[--height:auto] sm:bg-white"
             >
               {navLinks.map((navLink, index) => (
                 <div key={index}>
@@ -138,7 +153,7 @@ export const Navbar14 = (props: Navbar14Props) => {
                   )}
                 </div>
               ))}
-              <div className="rt-4 mt-4 flex flex-col items-center gap-4 lg:ml-8 lg:mt-0 lg:flex-row">
+              <div className="rt-4 mt-4 flex flex-col items-center sm:items-stretch gap-4 lg:ml-8 lg:mt-0 lg:flex-row">
                 {buttons.map((button, index) => (
                   <Button key={index} {...button}>
                     {button.title}
