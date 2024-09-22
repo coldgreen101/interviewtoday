@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 
@@ -8,17 +9,22 @@ interface BeforeAfterSliderProps {
   start?: number;
 }
 
+type BeerSliderType = new (
+  element: HTMLElement,
+  options?: { start: number }
+) => void;
+
 const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   beforeImage,
   afterImage,
   start = 50,
 }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [BeerSlider, setBeerSlider] = useState<any>(null);
+  const [BeerSlider, setBeerSlider] = useState<BeerSliderType | null>(null);
 
   useEffect(() => {
     import("beerslider").then((module) => {
-      setBeerSlider(() => module.default);
+      setBeerSlider(() => module.default as BeerSliderType);
     });
   }, []);
 
