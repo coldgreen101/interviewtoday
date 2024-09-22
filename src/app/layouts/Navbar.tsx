@@ -69,7 +69,7 @@ export const Navbar14 = (props: Navbar14Props) => {
 
   return (
     <nav
-      className="sticky inset-0 bottom-auto z-[1000] flex w-full bg-white/70 backdrop-saturate-150 backdrop-blur-lg transition-shadow px-0 md:mt-6"
+      className="sticky inset-0 bottom-auto z-[1000] flex w-full bg-white/70 backdrop-saturate-150 backdrop-blur-lg transition-shadow px-0 md:mt-6 sm:px-[5%]"
       style={{
         boxShadow: hasScrolled ? "0 3px 12px rgba(0, 0, 0, 0.07)" : "none",
       }}
