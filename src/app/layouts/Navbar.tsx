@@ -38,13 +38,18 @@ export const Navbar14 = (props: Navbar14Props) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.classList.add("overflow-hidden");
+      navRef.current?.classList.remove("bg-white/70");
+      navRef.current?.classList.add("bg-white");
       document.body.classList.remove("overflow-scroll");
     } else {
       document.body.classList.remove("overflow-hidden");
+      navRef.current?.classList.remove("bg-white");
+      navRef.current?.classList.add("bg-white/70");
       document.body.classList.add("overflow-scroll");
     }
     // Cleanup function
@@ -56,12 +61,13 @@ export const Navbar14 = (props: Navbar14Props) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setHasScrolled(window.scrollY > 0);
+      const scrolled = window.scrollY > 0;
+      setHasScrolled(scrolled);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  });
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -84,7 +90,10 @@ export const Navbar14 = (props: Navbar14Props) => {
 
   return (
     <nav
-      className="sticky inset-0 bottom-auto z-[1000] flex w-full bg-white/70 backdrop-saturate-150 backdrop-blur-lg transition-shadow px-0 md:mt-6 sm:px-[5%]"
+      ref={navRef}
+      className={`sticky inset-0 bottom-auto z-[1000] flex w-full backdrop-saturate-150 backdrop-blur-xl transition-all px-0 md:mt-6 sm:mt-5 sm:px-[5%] ${
+        isMobileMenuOpen ? "bg-white" : "bg-white/70"
+      }`}
       style={{
         boxShadow: hasScrolled ? "0 3px 12px rgba(0, 0, 0, 0.07)" : "none",
       }}
