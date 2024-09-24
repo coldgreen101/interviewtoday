@@ -122,7 +122,7 @@ export const Navbar14 = (props: Navbar14Props) => {
           initial="close"
           exit="close"
           animate={isMobileMenuOpen ? "open" : "close"}
-          className="absolute left-0 right-0 sm:h-[100dvh] top-full w-full overflow-hidden lg:static lg:left-auto lg:right-auto lg:top-auto lg:w-auto lg:overflow-visible lg:[--height:auto] sm:bg-white"
+          className="absolute left-0 right-0 sm:h-[100dvh] top-full w-full overflow-hidden lg:static lg:left-auto lg:right-auto lg:top-auto lg:w-auto lg:overflow-visible lg:[--height:auto] max-lg:bg-white"
         >
           <motion.div
             variants={{
@@ -137,7 +137,7 @@ export const Navbar14 = (props: Navbar14Props) => {
           >
             <div
               ref={menuRef}
-              className="flex w-full flex-col border-none border-black p-5 md:p-8 lg:w-auto lg:flex-row lg:border-none lg:bg-none lg:p-0 lg:[--height:auto] sm:bg-white"
+              className="flex w-full flex-col border-none border-black p-5 md:p-8 lg:w-auto lg:flex-row lg:border-none lg:bg-none lg:p-0 lg:[--height:auto] sm:max-md:bg-white"
             >
               {navLinks.map((navLink, index) => (
                 <div key={index}>
@@ -219,7 +219,7 @@ const SubMenu = ({
               },
             }}
             transition={{ duration: 0.2 }}
-            className="bg-white lg:absolute lg:z-50 lg:border lg:border-black lg:p-2 lg:[--height:auto] lg:[--y-close:25%]"
+            className="sm:max-md:bg-white lg:absolute lg:z-50 lg:border lg:border-black lg:p-2 lg:[--height:auto] lg:[--y-close:25%]"
           >
             {navLink.subMenuLinks?.map((navLink, index) => (
               <a
