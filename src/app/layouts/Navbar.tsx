@@ -247,15 +247,6 @@ export const Navbar14Defaults: Navbar14Props = {
     { title: "About", url: "#" },
     { title: "How it works", url: "#" },
     { title: "Pricing", url: "#" },
-    {
-      title: "Case studies",
-      url: "#",
-      subMenuLinks: [
-        { title: "Link Five", url: "#" },
-        { title: "Link Six", url: "#" },
-        { title: "Link Seven", url: "#" },
-      ],
-    },
   ],
   buttons: [
     {
