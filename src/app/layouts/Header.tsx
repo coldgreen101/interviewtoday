@@ -23,7 +23,7 @@ export const Header26 = (props: Header26Props) => {
   } as Props;
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
+      <div className="container-fluid">
         <div className="flex flex-col items-center">
           <div className="rb-12 mb-12 text-center md:mb-18 lg:mb-20">
             <div className="w-full max-w-lg">

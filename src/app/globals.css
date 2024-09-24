@@ -15,10 +15,36 @@
   --cta-alt: #f956a1;
 }
 
+html {
+  font-size: calc(0.625rem + 0.41666666666666663vw);
+}
+@media screen and (max-width: 1920px) {
+  html {
+    font-size: calc(0.625rem + 0.41666666666666674vw);
+  }
+}
+@media screen and (max-width: 1440px) {
+  html {
+    font-size: calc(0.8126951092611863rem + 0.20811654526534862vw);
+  }
+}
+@media screen and (max-width: 479px) {
+  html {
+    font-size: calc(0.7494769874476988rem + 0.8368200836820083vw);
+  }
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-haffer-trial), Arial, Helvetica, sans-serif;
+}
+
+.container-fluid {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @layer utilities {

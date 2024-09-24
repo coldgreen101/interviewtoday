@@ -71,7 +71,7 @@ export const Pricing17 = (props: Pricing17Props) => {
 
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
+      <div className="container-fluid">
         <div className="mx-auto mb-8 max-w-lg text-center md:mb-10 lg:mb-12">
           <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
           <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">

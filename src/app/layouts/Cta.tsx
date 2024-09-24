@@ -24,7 +24,7 @@ export const Cta57 = (props: Cta57Props) => {
       id="relume"
       className="px-[5%] py-16 md:py-24 lg:py-28 bg-gradient-to-b from-[var(--alt-background)] to-[#16043d]"
     >
-      <div className="container">
+      <div className="container-fluid">
         <div className="mx-auto w-full max-w-lg text-center">
           {headers.map((heading, index) => (
             <motion.h1

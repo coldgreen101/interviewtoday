@@ -21,7 +21,7 @@ export const Layout242 = (props: Layout242Props) => {
   const { heading, sections } = { ...props, ...Layout242Defaults } as Props;
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container flex flex-col items-center">
+      <div className="container-fluid flex flex-col items-center">
         <div className="rb-12 mb-12 text-center w-full max-w-lg md:mb-18 lg:mb-20">
           <h3 className="font-semibold leading-[1.2] md:text-5xl text-headings">
             {heading}

@@ -12,7 +12,8 @@ type Props = {
   companyName: string;
 };
 
-export type Testimonial1Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type Testimonial1Props = React.ComponentPropsWithoutRef<"section"> &
+  Partial<Props>;
 
 export const Testimonial1 = (props: Testimonial1Props) => {
   const { quote, logo, avatar, name, position, companyName } = {
@@ -21,10 +22,12 @@ export const Testimonial1 = (props: Testimonial1Props) => {
   } as Props;
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container mx-auto w-full max-w-lg">
+      <div className="container-fluid w-full max-w-lg">
         <div className="flex flex-col items-center text-center">
           <img src={logo.src} alt={logo.alt} className="max-h-14 w-full" />
-          <blockquote className="my-6 text-xl font-bold md:my-8 md:text-2xl">{quote}</blockquote>
+          <blockquote className="my-6 text-xl font-bold md:my-8 md:text-2xl">
+            {quote}
+          </blockquote>
           <div className="flex flex-col items-center justify-center">
             <img
               src={avatar.src}
@@ -47,7 +50,10 @@ export const Testimonial1 = (props: Testimonial1Props) => {
 export const Testimonial1Defaults: Testimonial1Props = {
   quote:
     '"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."',
-  logo: { src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg", alt: "Webflow logo" },
+  logo: {
+    src: "https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg",
+    alt: "Webflow logo",
+  },
   avatar: {
     src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
     alt: "Testimonial avatar",
