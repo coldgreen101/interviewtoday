@@ -9,8 +9,7 @@ import {
 } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import { BiCheck } from "react-icons/bi";
+import React, { useState } from "react";
 
 type Billing = "monthly" | "yearly";
 
@@ -101,17 +100,19 @@ export const Pricing17 = (props: Pricing17Props) => {
           </div>
           <div>
             <Tabs defaultValue={defaultTabValue}>
-              <TabsList className="mb-12 w-fit p-1 bg-[#f2f2f2]">
-                {tabs.map((tab, index) => (
-                  <TabsTrigger
-                    key={index}
-                    value={tab.value}
-                    onClick={() => setActiveTab(tab.value)}
-                  >
-                    {tab.tabName}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
+              <div className="border-none">
+                <TabsList className="mb-12 w-fit p-1 bg-[#f2f2f2] border-none">
+                  {tabs.map((tab, index) => (
+                    <TabsTrigger
+                      key={index}
+                      value={tab.value}
+                      onClick={() => setActiveTab(tab.value)}
+                    >
+                      {tab.tabName}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </div>
               <AnimatePresence initial={false}>
                 {tabs.map(
                   (tab, index) =>
@@ -149,65 +150,111 @@ const PricingPlan = ({
 }: {
   plan: PricingPlan;
   billing: Billing;
-}) => (
-  <div className="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8">
-    <div>
-      <div className="flex items-start justify-between">
-        <div>
-          <div className="rb-4 mb-4 flex flex-col items-start justify-end">
-            <img src={plan.icon.src} alt={plan.icon.alt} className="size-12" />
+}) => {
+  const [selectedValue, setSelectedValue] = useState<number>(0);
+  const values = [0, 30, 40, 50];
+
+  const handleSliderClick = (value: number) => {
+    setSelectedValue(value);
+  };
+
+  return (
+    <div className="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8">
+      <div>
+        <div className="flex items-start justify-between">
+          <div>
+            <div className="rb-4 mb-4 flex flex-col items-start justify-end">
+              <img
+                src={plan.icon.src}
+                alt={plan.icon.alt}
+                className="size-12"
+              />
+            </div>
+            <h5 className="mb-2 text-xl font-bold md:text-2xl">
+              {plan.planName}
+            </h5>
+            <p>{plan.description}</p>
           </div>
-          <h5 className="mb-2 text-xl font-bold md:text-2xl">
-            {plan.planName}
-          </h5>
-          <p>{plan.description}</p>
+          <div className="text-right">
+            <h1 className="text-6xl font-bold md:text-9xl lg:text-10xl">
+              {plan.price}
+              <span className="text-2xl font-bold md:text-3xl lg:text-4xl">
+                {billing === "monthly" ? "/mo" : ""}
+              </span>
+            </h1>
+            {billing === "yearly" && "discount" in plan && (
+              <p className="mt-2 font-medium">{plan.discount}</p>
+            )}
+          </div>
         </div>
-        <div className="text-right">
-          <h1 className="text-6xl font-bold md:text-9xl lg:text-10xl">
-            {plan.price}
-            <span className="text-2xl font-bold md:text-3xl lg:text-4xl">
-              {billing === "monthly" ? "/mo" : "/yr"}
-            </span>
-          </h1>
-          {billing === "yearly" && "discount" in plan && (
-            <p className="mt-2 font-medium">{plan.discount}</p>
-          )}
-        </div>
+        {billing === "yearly" && (
+          <div className="my-8">
+            <div className="relative w-full h-12">
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-black -translate-y-1/2"></div>
+              {values.map((value, index) => (
+                <div
+                  key={value}
+                  className="absolute -translate-x-1/2 cursor-pointer"
+                  style={{ left: `${(index / 3) * 100}%`, top: "0" }}
+                  onClick={() => handleSliderClick(value)}
+                >
+                  {selectedValue === value ? (
+                    <div className="w-4 h-4 bg-white border-2 border-black rounded-full"></div>
+                  ) : (
+                    <div className="w-0.5 h-6 bg-black"></div>
+                  )}
+                  <div className="mt-2 text-center text-sm">{value}</div>
+                </div>
+              ))}
+              1
+              {selectedValue !== null && (
+                <div
+                  className="absolute top-0 -translate-y-full -translate-x-1/2 bg-black text-white px-2 py-1 rounded"
+                  style={{
+                    left: `${(values.indexOf(selectedValue) / 3) * 100}%`,
+                  }}
+                >
+                  {selectedValue} interviews
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+        <div className="my-5 h-px w-full shrink-0 bg-border" />
       </div>
-      <div className="my-8 h-px w-full shrink-0 bg-border" />
+      <div>
+        <Button
+          variant={plan.button.variant}
+          size={plan.button.size}
+          iconRight={plan.button.iconRight}
+          iconLeft={plan.button.iconLeft}
+          className="w-full bg-black text-white"
+        >
+          {plan.button.title}
+        </Button>
+      </div>
     </div>
-    <div>
-      <Button
-        variant={plan.button.variant}
-        size={plan.button.size}
-        iconRight={plan.button.iconRight}
-        iconLeft={plan.button.iconLeft}
-        className="w-full bg-black text-white"
-      >
-        {plan.button.title}
-      </Button>
-    </div>
-  </div>
-);
+  );
+};
 
 export const Pricing17Defaults: Pricing17Props = {
-  tagline: "Tagline",
+  tagline: "Pricing",
   heading: "Pricing plan",
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   defaultTabValue: "monthly",
   tabs: [
     {
       value: "monthly",
-      tabName: "Monthly",
+      tabName: "Pay as you go",
       plans: [
         {
           icon: {
             src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
             alt: "Relume icon 1",
           },
-          planName: "Basic plan",
-          description: "Lorem ipsum dolor sit amet",
-          price: "$19",
+          planName: "Pay-as-you-go",
+          description: "Ideal for ongoing recruitment needs",
+          price: "$99",
           features: [
             "Feature text goes here",
             "Feature text goes here",
@@ -222,17 +269,17 @@ export const Pricing17Defaults: Pricing17Props = {
     },
     {
       value: "yearly",
-      tabName: "Yearly",
+      tabName: "Starter Pack",
       plans: [
         {
           icon: {
             src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
             alt: "Relume icon 1",
           },
-          planName: "Basic plan",
-          description: "Lorem ipsum dolor sit amet",
-          price: "$180",
-          discount: "Save 20%",
+          planName: "Starter Pack",
+          description: "Perfect for large scale hiring needs",
+          price: "$300",
+          discount: "30 interviews",
           features: [
             "Feature text goes here",
             "Feature text goes here",
@@ -252,27 +299,27 @@ export const Pricing17Defaults: Pricing17Props = {
         src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
         alt: "Relume logo 1",
       },
-      heading: "Key feature heading",
+      heading: "Reliable hiring support",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "Perfect for businesses with consistent hiring needs. This plan ensures a steady flow of qualified candidates.",
     },
     {
       icon: {
         src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
         alt: "Relume logo 2",
       },
-      heading: "Key feature heading",
+      heading: "Flexible internet packages",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "Buy interview credits in batches, with no penalties for cancellations or no-shows.",
     },
     {
       icon: {
         src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
         alt: "Relume logo 3",
       },
-      heading: "Key feature heading",
+      heading: "Pause and resume anytime",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+        "Valid for 2 months, with the option to pause when needed, offering flexibility to match your business demands.",
     },
   ],
 };
