@@ -1,33 +1,53 @@
 @import url("https://unpkg.com/beerslider/dist/BeerSlider.css");
+
 @tailwind base;
+
 @tailwind components;
+
 @tailwind utilities;
 
 :root {
   --background: #ffffff;
+
   --foreground: #000000;
+
   --primary: #f72485;
+
   --headings: #172036;
+
   --tagline: #e9318d;
+
   --alt-background: #3a0ba3;
+
   --card-background: #4dc9f0;
+
   --card-text: #aae5f8;
+
   --cta-alt: #f956a1;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 html {
   font-size: calc(0.625rem + 0.41666666666666663vw);
 }
+
 @media screen and (max-width: 1920px) {
   html {
     font-size: calc(0.625rem + 0.41666666666666674vw);
   }
 }
+
 @media screen and (max-width: 1440px) {
   html {
     font-size: calc(0.8126951092611863rem + 0.20811654526534862vw);
   }
 }
+
 @media screen and (max-width: 479px) {
   html {
     font-size: calc(0.7494769874476988rem + 0.8368200836820083vw);
@@ -36,48 +56,67 @@ html {
 
 body {
   color: var(--foreground);
+
   background: var(--background);
+
   font-family: var(--font-haffer-trial), Arial, Helvetica, sans-serif;
 }
 
 .container-fluid {
   width: 100%;
+
   max-width: 80rem;
+
   margin-left: auto;
+
   margin-right: auto;
 }
 
 input[type="range"] {
   -webkit-appearance: none;
+
   width: 100%;
+
   background: transparent;
 }
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
+
   height: var(--thumb-size);
+
   width: var(--thumb-size);
+
   background: transparent;
+
   cursor: pointer;
+
   margin-top: calc((var(--thumb-size) - var(--track-height)) / -2);
 }
 
 input[type="range"]::-moz-range-thumb {
   height: var(--thumb-size);
+
   width: var(--thumb-size);
+
   background: transparent;
+
   cursor: pointer;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
+
   height: var(--track-height);
+
   background: transparent;
 }
 
 input[type="range"]::-moz-range-track {
   width: 100%;
+
   height: var(--track-height);
+
   background: transparent;
 }
 
