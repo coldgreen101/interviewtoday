@@ -72,15 +72,15 @@ export const Pricing17 = (props: Pricing17Props) => {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container-fluid">
-        <div className="mx-auto mb-8 max-w-lg text-center md:mb-10 lg:mb-12">
-          <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-          <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-            {heading}
-          </h2>
-          <p className="md:text-md">{description}</p>
-        </div>
-        <div className="grid w-full grid-cols-1 items-center gap-y-12 md:gap-x-12 md:gap-y-16 lg:grid-cols-2 lg:gap-x-20">
+        <div className="grid w-full grid-cols-1 items-start gap-y-12 md:gap-x-12 md:gap-y-16 lg:grid-cols-2 lg:gap-x-20">
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 py-2">
+            <div className=" mb-8 max-w-lg  md:mb-10 lg:mb-12">
+              <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
+              <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-5xl lg:text-5xl">
+                {heading}
+              </h2>
+              <p className="md:text-md">{description}</p>
+            </div>
             {featureSections.map((featureSection, index) => (
               <div key={index} className="flex self-start">
                 <div className="mr-6 flex-none self-start">
@@ -99,47 +99,50 @@ export const Pricing17 = (props: Pricing17Props) => {
               </div>
             ))}
           </div>
-          <Tabs defaultValue={defaultTabValue}>
-            <TabsList className="mb-12 w-fit">
-              {tabs.map((tab, index) => (
-                <TabsTrigger
-                  key={index}
-                  value={tab.value}
-                  onClick={() => setActiveTab(tab.value)}
-                >
-                  {tab.tabName}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-            <AnimatePresence initial={false}>
-              {tabs.map(
-                (tab, index) =>
-                  tab.value === activeTab && (
-                    <MotionTabsContent
-                      key={index}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                      value={tab.value}
-                    >
-                      {tab.plans.map((plan, index) => (
-                        <PricingPlan
-                          key={index}
-                          plan={plan}
-                          billing={tab.value}
-                        />
-                      ))}
-                    </MotionTabsContent>
-                  )
-              )}
-            </AnimatePresence>
-          </Tabs>
+          <div>
+            <Tabs defaultValue={defaultTabValue}>
+              <TabsList className="mb-12 w-fit p-1 bg-[#f2f2f2]">
+                {tabs.map((tab, index) => (
+                  <TabsTrigger
+                    key={index}
+                    value={tab.value}
+                    onClick={() => setActiveTab(tab.value)}
+                  >
+                    {tab.tabName}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              <AnimatePresence initial={false}>
+                {tabs.map(
+                  (tab, index) =>
+                    tab.value === activeTab && (
+                      <MotionTabsContent
+                        key={index}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        value={tab.value}
+                      >
+                        {tab.plans.map((plan, index) => (
+                          <PricingPlan
+                            key={index}
+                            plan={plan}
+                            billing={tab.value}
+                          />
+                        ))}
+                      </MotionTabsContent>
+                    )
+                )}
+              </AnimatePresence>
+            </Tabs>
+          </div>
         </div>
       </div>
     </section>
   );
 };
+
 const PricingPlan = ({
   plan,
   billing,
@@ -172,17 +175,6 @@ const PricingPlan = ({
         </div>
       </div>
       <div className="my-8 h-px w-full shrink-0 bg-border" />
-      <p>Includes:</p>
-      <div className="mb-8 mt-4 grid grid-cols-1 gap-x-6 gap-y-4 py-2 lg:grid-cols-2">
-        {plan.features.map((feature, index) => (
-          <div key={index} className="flex self-start">
-            <div className="mr-4 flex-none self-start">
-              <BiCheck className="size-6" />
-            </div>
-            <p>{feature}</p>
-          </div>
-        ))}
-      </div>
     </div>
     <div>
       <Button
@@ -190,7 +182,7 @@ const PricingPlan = ({
         size={plan.button.size}
         iconRight={plan.button.iconRight}
         iconLeft={plan.button.iconLeft}
-        className="w-full"
+        className="w-full bg-black text-white"
       >
         {plan.button.title}
       </Button>
