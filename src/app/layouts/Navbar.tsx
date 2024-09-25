@@ -142,11 +142,11 @@ export const Navbar14 = (props: Navbar14Props) => {
             initial="close"
             exit="close"
             transition={{ duration: 0.3 }}
-            className="absolute left-0 right-0 top-0 mx-auto min-w-[200px] justify-self-center px-[5%] text-center lg:static lg:inset-auto lg:mx-0 lg:px-0 lg:text-left lg:[--translate-y:0%]"
+            className="absolute left-0 right-0 top-0 mx-auto min-w-[200px] justify-self-center px-[5%] text-center text-lg lg:static lg:inset-auto lg:mx-0 lg:px-0 lg:text-left lg:[--translate-y:0%]"
           >
             <div
               ref={menuRef}
-              className="flex w-full flex-col border-none border-black p-5 md:p-8 lg:w-auto lg:flex-row lg:border-none lg:bg-none lg:p-0 lg:[--height:auto] sm:max-md:bg-white"
+              className="mt-4 flex w-full flex-col border-none border-black p-5 text-lg md:p-8 lg:w-auto lg:flex-row lg:border-none lg:bg-none lg:p-0 lg:mt-0 lg:[--height:auto] sm:max-md:bg-white"
             >
               {navLinks.map((navLink, index) => (
                 <div key={index}>
@@ -162,7 +162,7 @@ export const Navbar14 = (props: Navbar14Props) => {
                   )}
                 </div>
               ))}
-              <div className="rt-4 mt-4 flex flex-col items-center sm:items-stretch gap-4 lg:ml-8 lg:mt-0 lg:flex-row">
+              <div className="rt-4 mt-4 flex flex-col items-center sm:items-center  gap-4 lg:ml-8 lg:mt-0 lg:flex-row">
                 {buttons.map((button, index) => (
                   <Button key={index} {...button}>
                     {button.title}
@@ -263,13 +263,13 @@ export const Navbar14Defaults: Navbar14Props = {
       variant: "secondary",
       size: "sm",
       className:
-        "bg-transparent border-black/10 rounded-full py-1.5 font-semibold transition hover:bg-black hover:text-white",
+        "bg-transparent border-black/10 rounded-full py-1.5 sm:max-md:py-2 font-semibold transition hover:bg-black hover:text-white sm:max-lg:w-[12.5rem]",
     },
     {
       title: "Sign up",
       size: "sm",
       className:
-        "bg-primary rounded-full border-none py-1.5 font-semibold hover:bg-[#e80279]",
+        "bg-primary rounded-full border-none py-1.5 sm:max-md:py-2 font-semibold hover:bg-[#e80279] sm:max-lg:w-[12.5rem]",
     },
   ],
 };
