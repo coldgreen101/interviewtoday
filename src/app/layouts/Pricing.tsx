@@ -7,9 +7,12 @@ import {
   TabsList,
   TabsTrigger,
 } from "@relume_io/relume-ui";
+
 import type { ButtonProps } from "@relume_io/relume-ui";
+
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+
+import React, { useState, useRef, useEffect } from "react";
 
 type Billing = "monthly" | "yearly";
 
@@ -66,6 +69,7 @@ export const Pricing17 = (props: Pricing17Props) => {
   } as Props;
 
   const [activeTab, setActiveTab] = useState(defaultTabValue);
+
   const MotionTabsContent = motion(TabsContent);
 
   return (
@@ -80,6 +84,7 @@ export const Pricing17 = (props: Pricing17Props) => {
               </h2>
               <p className="md:text-md">{description}</p>
             </div>
+
             {featureSections.map((featureSection, index) => (
               <div key={index} className="flex self-start">
                 <div className="mr-6 flex-none self-start">
@@ -98,6 +103,7 @@ export const Pricing17 = (props: Pricing17Props) => {
               </div>
             ))}
           </div>
+
           <div>
             <Tabs defaultValue={defaultTabValue}>
               <div className="border-none">
@@ -113,6 +119,7 @@ export const Pricing17 = (props: Pricing17Props) => {
                   ))}
                 </TabsList>
               </div>
+
               <AnimatePresence initial={false}>
                 {tabs.map(
                   (tab, index) =>
@@ -153,10 +160,20 @@ const PricingPlan = ({
 }) => {
   const [selectedValue, setSelectedValue] = useState<number>(0);
   const values = [0, 30, 40, 50];
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   const handleSliderClick = (value: number) => {
     setSelectedValue(value);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSelectedValue(selectedValue);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [selectedValue]);
 
   return (
     <div className="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8">
@@ -187,10 +204,12 @@ const PricingPlan = ({
             )}
           </div>
         </div>
+
         {billing === "yearly" && (
           <div className="my-8">
-            <div className="relative w-full h-12">
-              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-black -translate-y-1/2"></div>
+            <div ref={sliderRef} className="relative w-full h-16">
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-black"></div>
+
               {values.map((value, index) => (
                 <div
                   key={value}
@@ -198,18 +217,17 @@ const PricingPlan = ({
                   style={{ left: `${(index / 3) * 100}%`, top: "0" }}
                   onClick={() => handleSliderClick(value)}
                 >
-                  {selectedValue === value ? (
-                    <div className="w-4 h-4 bg-white border-2 border-black rounded-full"></div>
-                  ) : (
-                    <div className="w-0.5 h-6 bg-black"></div>
+                  <div className="w-1 h-2 bg-black"></div>
+                  <div className="mt-4 text-center text-sm">{value}</div>
+                  {selectedValue === value && (
+                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-2 border-black rounded-full"></div>
                   )}
-                  <div className="mt-2 text-center text-sm">{value}</div>
                 </div>
               ))}
-              1
+
               {selectedValue !== null && (
                 <div
-                  className="absolute top-0 -translate-y-full -translate-x-1/2 bg-black text-white px-2 py-1 rounded"
+                  className="absolute -top-8 -translate-x-1/2 bg-black text-white px-2 py-1 text-sm rounded"
                   style={{
                     left: `${(values.indexOf(selectedValue) / 3) * 100}%`,
                   }}
@@ -220,8 +238,10 @@ const PricingPlan = ({
             </div>
           </div>
         )}
-        <div className="my-5 h-px w-full shrink-0 bg-border" />
+
+        <div className="my-8 h-px w-full shrink-0 bg-border" />
       </div>
+
       <div>
         <Button
           variant={plan.button.variant}
@@ -239,20 +259,20 @@ const PricingPlan = ({
 
 export const Pricing17Defaults: Pricing17Props = {
   tagline: "Pricing",
-  heading: "Pricing plan",
+  heading: "Choose your plan",
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   defaultTabValue: "monthly",
   tabs: [
     {
       value: "monthly",
-      tabName: "Pay as you go",
+      tabName: "Pay As You Go",
       plans: [
         {
           icon: {
             src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
             alt: "Relume icon 1",
           },
-          planName: "Pay-as-you-go",
+          planName: "Pay As You Go",
           description: "Ideal for ongoing recruitment needs",
           price: "$99",
           features: [
@@ -269,14 +289,14 @@ export const Pricing17Defaults: Pricing17Props = {
     },
     {
       value: "yearly",
-      tabName: "Starter Pack",
+      tabName: "Starter pack",
       plans: [
         {
           icon: {
             src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
             alt: "Relume icon 1",
           },
-          planName: "Starter Pack",
+          planName: "Starter pack",
           description: "Perfect for large scale hiring needs",
           price: "$300",
           discount: "30 interviews",
