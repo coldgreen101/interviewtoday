@@ -31,7 +31,6 @@ type FeatureSection = {
 };
 
 type PricingPlan = {
-  icon: ImageProps;
   planName: string;
   price: string;
   discount?: string;
@@ -212,25 +211,18 @@ const PricingPlan = ({
   return (
     <div className="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8">
       <div>
-        <div className="flex items-start justify-between">
+        <div className="flex items-center justify-between">
           <div>
-            <div className="rb-4 mb-4 flex flex-col items-start justify-end">
-              <img
-                src={plan.icon.src}
-                alt={plan.icon.alt}
-                className="size-12"
-              />
-            </div>
             <h5 className="mb-2 text-xl font-bold md:text-2xl">
               {plan.planName}
             </h5>
             <p>{plan.description}</p>
           </div>
           <div className="text-right">
-            <h1 className="text-6xl font-bold md:text-9xl lg:text-10xl">
+            <h1 className="text-2xl font-bold md:text-3xl lg:text-5xl">
               {plan.price}
-              <span className="text-2xl font-bold md:text-3xl lg:text-4xl">
-                {billing === "monthly" ? "/mo" : ""}
+              <span className="text-2xl font-bold md:text-2xl lg:text-2xl">
+                {billing === "monthly" ? "/ 10 interviews" : ""}
               </span>
             </h1>
             {billing === "yearly" && "discount" in plan && (
@@ -291,10 +283,6 @@ export const Pricing17Defaults: Pricing17Props = {
       tabName: "Pay As You Go",
       plans: [
         {
-          icon: {
-            src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
-            alt: "Relume icon 1",
-          },
           planName: "Pay As You Go",
           description: "Ideal for ongoing recruitment needs",
           price: "$99",
@@ -344,10 +332,6 @@ export const Pricing17Defaults: Pricing17Props = {
       tabName: "Starter pack",
       plans: [
         {
-          icon: {
-            src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
-            alt: "Relume icon 1",
-          },
           planName: "Starter pack",
           description: "Perfect for large scale hiring needs",
           price: "$300",
