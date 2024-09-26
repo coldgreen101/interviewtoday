@@ -14,6 +14,7 @@
     "beerslider": "^1.0.3",
     "lottie-react": "^2.4.0",
     "next": "14.2.11",
+    "rc-slider": "^11.1.6",
     "react": "^18",
     "react-dom": "^18",
     "use-count-up": "^3.0.1"
