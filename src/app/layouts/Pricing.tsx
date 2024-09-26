@@ -38,6 +38,7 @@ type PricingPlan = {
   description: string;
   features: string[];
   button: ButtonProps;
+  showSlider?: boolean;
 };
 
 type Tab = {
@@ -225,29 +226,30 @@ const PricingPlan = ({
             )}
           </div>
         </div>
-        <div className="my-5">
-          <Slider
-            styles={{
-              track: { backgroundColor: "transparent" },
-              rail: { backgroundColor: "black" },
-              handle: {
-                height: 20,
-                width: 20,
-                borderColor: "black",
-                backgroundColor: "white",
-                opacity: 1,
-              },
-            }}
-            marks={marks}
-            defaultValue={0}
-            min={0}
-            max={50}
-            step={null}
-            dotStyle={{ display: "none" }}
-            activeDotStyle={{ display: "none" }}
-          />
-        </div>
-
+        {plan.showSlider && (
+          <div className="my-5">
+            <Slider
+              styles={{
+                track: { backgroundColor: "transparent" },
+                rail: { backgroundColor: "black" },
+                handle: {
+                  height: 20,
+                  width: 20,
+                  borderColor: "black",
+                  backgroundColor: "white",
+                  opacity: 1,
+                },
+              }}
+              marks={marks}
+              defaultValue={0}
+              min={0}
+              max={50}
+              step={null}
+              dotStyle={{ display: "none" }}
+              activeDotStyle={{ display: "none" }}
+            />
+          </div>
+        )}
         <div className="my-8 h-px w-full shrink-0 bg-border" />
       </div>
 
@@ -317,6 +319,7 @@ export const Pricing17Defaults: Pricing17Props = {
             "Feature text goes here",
           ],
           button: { title: "Get started" },
+          showSlider: true,
         },
       ],
     },
