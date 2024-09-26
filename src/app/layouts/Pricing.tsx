@@ -118,13 +118,17 @@ export const Pricing17 = (props: Pricing17Props) => {
 
           <div>
             <Tabs defaultValue={defaultTabValue}>
-              <div className="border-none">
-                <TabsList className="mb-12 w-fit p-1 bg-[#f2f2f2] border-none">
+              <div>
+                <TabsList className="mb-12 w-fit p-1 bg-[#f2f2f2]">
                   {tabs.map((tab, index) => (
                     <TabsTrigger
                       key={index}
                       value={tab.value}
                       onClick={() => setActiveTab(tab.value)}
+                      className="border-none text-[#757575] font-semibold"
+                      style={{
+                        color: activeTab === tab.value ? "#000000" : "#757575",
+                      }}
                     >
                       {tab.tabName}
                     </TabsTrigger>
@@ -141,7 +145,7 @@ export const Pricing17 = (props: Pricing17Props) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
                         value={tab.value}
                       >
                         {tab.plans.map((plan, index) => (
