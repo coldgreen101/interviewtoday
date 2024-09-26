@@ -231,14 +231,14 @@ const PricingPlan = ({
           </div>
         </div>
         {plan.showSlider && (
-          <div className="my-5">
+          <div className="my-14">
             <Slider
               styles={{
                 track: { backgroundColor: "transparent" },
                 rail: { backgroundColor: "black" },
                 handle: {
-                  height: 20,
-                  width: 20,
+                  height: 16,
+                  width: 16,
                   borderColor: "black",
                   backgroundColor: "white",
                   opacity: 1,
