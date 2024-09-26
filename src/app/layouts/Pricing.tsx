@@ -45,6 +45,7 @@ type Tab = {
   value: Billing;
   tabName: string;
   plans: PricingPlan[];
+  featureSections: FeatureSection[];
 };
 
 type Props = {
@@ -53,21 +54,13 @@ type Props = {
   description: string;
   defaultTabValue: Billing;
   tabs: Tab[];
-  featureSections: FeatureSection[];
 };
 
 export type Pricing17Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
 export const Pricing17 = (props: Pricing17Props) => {
-  const {
-    tagline,
-    heading,
-    description,
-    defaultTabValue,
-    tabs,
-    featureSections,
-  } = {
+  const { tagline, heading, description, defaultTabValue, tabs } = {
     ...Pricing17Defaults,
     ...props,
   } as Props;
@@ -89,23 +82,38 @@ export const Pricing17 = (props: Pricing17Props) => {
               <p className="md:text-md">{description}</p>
             </div>
 
-            {featureSections.map((featureSection, index) => (
-              <div key={index} className="flex self-start">
-                <div className="mr-6 flex-none self-start">
-                  <img
-                    src={featureSection.icon.src}
-                    className="size-8"
-                    alt={featureSection.icon.alt}
-                  />
-                </div>
-                <div>
-                  <h3 className="mb-3 text-md font-bold leading-[1.4] md:mb-4 md:text-xl">
-                    {featureSection.heading}
-                  </h3>
-                  <p>{featureSection.description}</p>
-                </div>
-              </div>
-            ))}
+            <AnimatePresence initial={false} mode="wait">
+              {tabs.map(
+                (tab) =>
+                  tab.value === activeTab && (
+                    <motion.div
+                      key={tab.value}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                    >
+                      {tab.featureSections.map((featureSection, index) => (
+                        <div key={index} className="flex self-start mb-8">
+                          <div className="mr-6 flex-none self-start">
+                            <img
+                              src={featureSection.icon.src}
+                              className="size-8"
+                              alt={featureSection.icon.alt}
+                            />
+                          </div>
+                          <div>
+                            <h3 className="mb-3 text-md font-bold leading-[1.4] md:mb-4 md:text-xl">
+                              {featureSection.heading}
+                            </h3>
+                            <p>{featureSection.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </motion.div>
+                  )
+              )}
+            </AnimatePresence>
           </div>
 
           <div>
@@ -133,7 +141,7 @@ export const Pricing17 = (props: Pricing17Props) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
                         value={tab.value}
                       >
                         {tab.plans.map((plan, index) => (
@@ -297,6 +305,35 @@ export const Pricing17Defaults: Pricing17Props = {
           button: { title: "Get started" },
         },
       ],
+      featureSections: [
+        {
+          icon: {
+            src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+            alt: "Relume logo 1",
+          },
+          heading: "Reliable hiring support",
+          description:
+            "Perfect for businesses with consistent hiring needs. This plan ensures a steady flow of qualified candidates.",
+        },
+        {
+          icon: {
+            src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+            alt: "Relume logo 2",
+          },
+          heading: "Flexible internet packages",
+          description:
+            "Buy interview credits in batches, with no penalties for cancellations or no-shows.",
+        },
+        {
+          icon: {
+            src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+            alt: "Relume logo 3",
+          },
+          heading: "Pause and resume anytime",
+          description:
+            "Valid for 2 months, with the option to pause when needed, offering flexibility to match your business demands.",
+        },
+      ],
     },
     {
       value: "yearly",
@@ -322,35 +359,35 @@ export const Pricing17Defaults: Pricing17Props = {
           showSlider: true,
         },
       ],
-    },
-  ],
-  featureSections: [
-    {
-      icon: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
-        alt: "Relume logo 1",
-      },
-      heading: "Reliable hiring support",
-      description:
-        "Perfect for businesses with consistent hiring needs. This plan ensures a steady flow of qualified candidates.",
-    },
-    {
-      icon: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
-        alt: "Relume logo 2",
-      },
-      heading: "Flexible internet packages",
-      description:
-        "Buy interview credits in batches, with no penalties for cancellations or no-shows.",
-    },
-    {
-      icon: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
-        alt: "Relume logo 3",
-      },
-      heading: "Pause and resume anytime",
-      description:
-        "Valid for 2 months, with the option to pause when needed, offering flexibility to match your business demands.",
+      featureSections: [
+        {
+          icon: {
+            src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+            alt: "Relume logo 1",
+          },
+          heading: "Fast-track your hiring process",
+          description:
+            "Perfect for businesses with consistent hiring needs. This plan ensures a steady flow of qualified candidates.",
+        },
+        {
+          icon: {
+            src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+            alt: "Relume logo 2",
+          },
+          heading: "Scalable interview credits",
+          description:
+            "Choose the number of interviews you need, with no impact from no-shows or cancellations.",
+        },
+        {
+          icon: {
+            src: "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg",
+            alt: "Relume logo 3",
+          },
+          heading: "Extended validity and flexibility",
+          description:
+            "Valid for 3 months, with the flexibility to pause and resume as needed, ensuring you can manage your hiring on your schedule.",
+        },
+      ],
     },
   ],
 };
