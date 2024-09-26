@@ -117,7 +117,7 @@ export const Pricing17 = (props: Pricing17Props) => {
 
           <div>
             <Tabs defaultValue={defaultTabValue}>
-              <div>
+              <div className="flex justify-end">
                 <TabsList className="mb-12 w-fit p-1 bg-[#f2f2f2]">
                   {tabs.map((tab, index) => (
                     <TabsTrigger
@@ -226,7 +226,7 @@ const PricingPlan = ({
               </span>
             </h1>
             {billing === "yearly" && "discount" in plan && (
-              <p className="mt-2 font-medium">{plan.discount}</p>
+              <p className="mt-1 font-medium">{plan.discount}</p>
             )}
           </div>
         </div>
