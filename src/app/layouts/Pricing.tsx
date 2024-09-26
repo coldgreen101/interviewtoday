@@ -161,6 +161,44 @@ const PricingPlan = ({
   plan: PricingPlan;
   billing: Billing;
 }) => {
+  const marks = {
+    0: {
+      style: {
+        fontSize: "1rem",
+        fontWeight: 500,
+        color: "black",
+      },
+      label: "0",
+    },
+    30: {
+      style: {
+        fontSize: "1rem",
+        fontWeight: 500,
+        color: "black",
+        left: "35%",
+      },
+      label: "30",
+    },
+    40: {
+      style: {
+        fontSize: "1rem",
+        fontWeight: 500,
+        color: "black",
+        left: "70%",
+      },
+      label: "40",
+    },
+    50: {
+      style: {
+        fontSize: "1rem",
+        fontWeight: 500,
+        color: "black",
+        left: "99%",
+      },
+      label: "50",
+    },
+  };
+
   return (
     <div className="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8">
       <div>
@@ -190,28 +228,29 @@ const PricingPlan = ({
             )}
           </div>
         </div>
-        <Slider
-          styles={{
-            track: { backgroundColor: "transparent" },
-            rail: { backgroundColor: "black" },
-            handle: {
-              height: 20,
-              width: 20,
-              borderColor: "black",
-              backgroundColor: "white",
-            },
-          }}
-          defaultValue={0}
-          min={0}
-          max={50}
-          step={null}
-          marks={{
-            0: "0",
-            30: "30",
-            40: "40",
-            50: "50",
-          }}
-        />
+        <div className="my-5">
+          <Slider
+            styles={{
+              track: { backgroundColor: "transparent" },
+              rail: { backgroundColor: "black" },
+              handle: {
+                height: 20,
+                width: 20,
+                borderColor: "black",
+                backgroundColor: "white",
+                opacity: 1,
+              },
+            }}
+            marks={marks}
+            defaultValue={0}
+            min={0}
+            max={50}
+            step={null}
+            dotStyle={{ display: "none" }}
+            activeDotStyle={{ display: "none" }}
+          />
+        </div>
+
         <div className="my-8 h-px w-full shrink-0 bg-border" />
       </div>
 
