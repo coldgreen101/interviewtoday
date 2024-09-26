@@ -12,7 +12,10 @@ import type { ButtonProps } from "@relume_io/relume-ui";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
+
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 
 type Billing = "monthly" | "yearly";
 
@@ -158,23 +161,6 @@ const PricingPlan = ({
   plan: PricingPlan;
   billing: Billing;
 }) => {
-  const [selectedValue, setSelectedValue] = useState<number>(0);
-  const values = [0, 30, 40, 50];
-  const sliderRef = useRef<HTMLDivElement>(null);
-
-  const handleSliderClick = (value: number) => {
-    setSelectedValue(value);
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setSelectedValue(selectedValue);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [selectedValue]);
-
   return (
     <div className="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8">
       <div>
@@ -204,41 +190,28 @@ const PricingPlan = ({
             )}
           </div>
         </div>
-
-        {billing === "yearly" && (
-          <div className="my-8">
-            <div ref={sliderRef} className="relative w-full h-16">
-              <div className="absolute top-0 left-0 w-full h-0.5 bg-black"></div>
-
-              {values.map((value, index) => (
-                <div
-                  key={value}
-                  className="absolute -translate-x-1/2 cursor-pointer"
-                  style={{ left: `${(index / 3) * 100}%`, top: "0" }}
-                  onClick={() => handleSliderClick(value)}
-                >
-                  <div className="w-1 h-2 bg-black"></div>
-                  <div className="mt-4 text-center text-sm">{value}</div>
-                  {selectedValue === value && (
-                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-2 border-black rounded-full"></div>
-                  )}
-                </div>
-              ))}
-
-              {selectedValue !== null && (
-                <div
-                  className="absolute -top-8 -translate-x-1/2 bg-black text-white px-2 py-1 text-sm rounded"
-                  style={{
-                    left: `${(values.indexOf(selectedValue) / 3) * 100}%`,
-                  }}
-                >
-                  {selectedValue} interviews
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
+        <Slider
+          styles={{
+            track: { backgroundColor: "transparent" },
+            rail: { backgroundColor: "black" },
+            handle: {
+              height: 20,
+              width: 20,
+              borderColor: "black",
+              backgroundColor: "white",
+            },
+          }}
+          defaultValue={0}
+          min={0}
+          max={50}
+          step={null}
+          marks={{
+            0: "0",
+            30: "30",
+            40: "40",
+            50: "50",
+          }}
+        />
         <div className="my-8 h-px w-full shrink-0 bg-border" />
       </div>
 
@@ -301,7 +274,6 @@ export const Pricing17Defaults: Pricing17Props = {
           price: "$300",
           discount: "30 interviews",
           features: [
-            "Feature text goes here",
             "Feature text goes here",
             "Feature text goes here",
             "Feature text goes here",
