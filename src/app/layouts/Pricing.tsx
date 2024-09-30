@@ -78,7 +78,7 @@ export const Pricing17 = (props: Pricing17Props) => {
           </h2>
           <p className="md:text-md">{description}</p>
         </div>
-        <div className="grid w-full grid-cols-1 items-start gap-y-12 md:gap-x-12 md:gap-y-16 lg:grid-cols-2 lg:gap-x-20">
+        <div className="grid  w-full grid-cols-1 items-start gap-y-12 md:gap-x-12 md:gap-y-16 lg:grid-cols-2 lg:gap-x-20">
           <div className="order-last lg:order-first grid grid-cols-1 gap-x-6 gap-y-8 py-2">
             <AnimatePresence initial={false} mode="wait">
               {tabs.map(
@@ -114,9 +114,9 @@ export const Pricing17 = (props: Pricing17Props) => {
             </AnimatePresence>
           </div>
 
-          <div className="order-first lg:order-last">
+          <div className="order-first lg:order-last relative">
             <Tabs defaultValue={defaultTabValue}>
-              <div className="flex justify-start lg:justify-end">
+              <div className="flex justify-start lg:justify-end lg:absolute lg:top-[-100px] z-index-10">
                 <TabsList className="mb-12 w-fit p-1 bg-[#f2f2f2]">
                   {tabs.map((tab, index) => (
                     <TabsTrigger
