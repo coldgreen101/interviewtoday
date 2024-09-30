@@ -155,14 +155,14 @@ export const Navbar14 = (props: Navbar14Props) => {
                   ) : (
                     <a
                       href={navLink.url}
-                      className="relative block py-3 text-center text-md font-semibold transition-opacity hover:opacity-80 lg:px-4 lg:py-2 lg:text-left lg:text-base"
+                      className="relative block py-3 text-center text-md font-semibold transition-opacity hover:opacity-80 lg:px-4 lg:py-3 lg:text-left lg:text-base"
                     >
                       {navLink.title}
                     </a>
                   )}
                 </div>
               ))}
-              <div className="rt-4 mt-4 flex flex-col items-center sm:items-center  gap-4 lg:ml-8 lg:mt-0 lg:flex-row">
+              <div className="rt-4 mt-6 flex flex-col items-center sm:items-center  gap-4 lg:ml-8 lg:mt-0 lg:flex-row">
                 {buttons.map((button, index) => (
                   <Button key={index} {...button}>
                     {button.title}
