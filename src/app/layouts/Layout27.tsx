@@ -59,9 +59,9 @@ export const Layout27 = (props: Layout27Props) => {
   });
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-neutral">
       <div className="container-fluid">
-        <div className="grid grid-cols-1 gap-16 md:grid-flow-row lg:grid-cols-[40%_1fr] md:items-center md:gap-x-12 lg:gap-x-16">
+        <div className="grid  gap-16 md:grid-flow-row grid-cols-1 lg:grid-cols-[40%_1fr] md:items-center md:gap-x-12 lg:gap-x-16">
           <div>
             <p className="mb-3 font-bold md:mb-4 text-primary">{tagline}</p>
             <h2 className="mb-5 text-5xl font-semibold leading-[1.2] md:mb-6">
