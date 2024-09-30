@@ -172,6 +172,14 @@ const PricingPlan = ({
   plan: PricingPlan;
   billing: Billing;
 }) => {
+  const [sliderValue, setSliderValue] = useState(30);
+
+  const priceMap = {
+    30: { price: "$60", interviews: 30 },
+    40: { price: "$80", interviews: 40 },
+    50: { price: "$100", interviews: 50 },
+  };
+
   const marks = {
     30: {
       style: {
@@ -199,6 +207,10 @@ const PricingPlan = ({
     },
   };
 
+  const handleSliderChange = (value: number) => {
+    setSliderValue(value);
+  };
+
   return (
     <div className="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8">
       <div>
@@ -211,13 +223,21 @@ const PricingPlan = ({
           </div>
           <div className="text-right">
             <h1 className="text-2xl font-bold md:text-3xl lg:text-5xl">
-              {plan.price}
+              {billing === "yearly" && plan.showSlider
+                ? priceMap[sliderValue as keyof typeof priceMap].price
+                : plan.price}
               <span className="text-2xl font-bold md:text-2xl lg:text-2xl">
                 {billing === "monthly" ? "/ 10 interviews" : ""}
               </span>
             </h1>
-            {billing === "yearly" && "discount" in plan && (
-              <p className="mt-1 font-medium">{plan.discount}</p>
+            {billing === "yearly" && (
+              <p className="mt-1 font-medium">
+                {plan.showSlider
+                  ? `${
+                      priceMap[sliderValue as keyof typeof priceMap].interviews
+                    } interviews`
+                  : plan.discount}
+              </p>
             )}
           </div>
         </div>
@@ -242,6 +262,7 @@ const PricingPlan = ({
               step={null}
               dotStyle={{ display: "none" }}
               activeDotStyle={{ display: "none" }}
+              onChange={handleSliderChange}
             />
           </div>
         )}
