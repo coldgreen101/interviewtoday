@@ -155,7 +155,7 @@ export const Navbar14 = (props: Navbar14Props) => {
                   ) : (
                     <a
                       href={navLink.url}
-                      className="relative block py-3 text-center text-md font-semibold transition-opacity hover:opacity-80 lg:px-4 lg:py-3 lg:text-left lg:text-base"
+                      className="relative block py-3 text-center font-semibold transition-opacity hover:opacity-80 lg:px-4 lg:py-3 text-lg lg:text-base"
                     >
                       {navLink.title}
                     </a>
@@ -263,13 +263,13 @@ export const Navbar14Defaults: Navbar14Props = {
       variant: "secondary",
       size: "sm",
       className:
-        "bg-transparent border-black/10 rounded-full py-1.5 sm:max-md:py-2 font-semibold transition hover:bg-black hover:text-white sm:max-lg:w-[12.5rem]",
+        "bg-transparent border-black/10 rounded-full lg:py-[.375rem] lg:px-[1.25rem] py-2 px-4 font-semibold text-base transition hover:bg-black hover:text-white sm:max-lg:w-[12.5rem]",
     },
     {
       title: "Sign up",
       size: "sm",
       className:
-        "bg-primary rounded-full border-none py-1.5 sm:max-md:py-2 font-semibold hover:bg-[#e80279] sm:max-lg:w-[12.5rem]",
+        "bg-primary rounded-full border-none lg:py-[.375rem] lg:px-[1.25rem] py-2 px-4 font-semibold text-base hover:bg-[#e80279] sm:max-lg:w-[12.5rem]",
     },
   ],
 };
