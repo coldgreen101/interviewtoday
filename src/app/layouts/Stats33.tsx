@@ -95,7 +95,7 @@ const Stat = ({
               : "bg-[#f7248599] text-altBackground"
           }`}
         >
-          <p className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
+          <p className="mb-5 text-6xl font-bold md:mb-6 md:text-8xl lg:text-8xl">
             <CountUp
               isCounting={isStatsVisible}
               start={0}
