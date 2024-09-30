@@ -32,6 +32,7 @@ const config: Config = {
       "6xl": "3.75rem",
       "7xl": "4.25rem",
       "8xl": "5rem",
+      "9xl": "7rem",
     },
   },
   plugins: [],
