@@ -41,7 +41,7 @@ export const Layout253 = (props: Layout253Props) => {
             {heading}
           </h2>
         </div>
-        <div className="grid auto-cols-fr grid-cols-1 items-center justify-start gap-y-12 md:grid-cols-[1fr_1.5fr_1fr] md:gap-x-12 md:gap-y-16 lg:gap-x-20">
+        <div className="grid auto-cols-fr sm:grid-cols-1 items-center justify-start gap-y-12 md:grid-cols-2 lg:grid-cols-[1fr_1.5fr_1fr] md:gap-x-12 md:gap-y-16 lg:gap-x-20">
           <div className="grid w-full auto-cols-fr grid-cols-1 gap-x-8 gap-y-12  md:gap-y-16 lg:gap-x-12">
             <div className="text-center">
               <div className="rb-5 mb-5 md:mb-6">
@@ -70,10 +70,10 @@ export const Layout253 = (props: Layout253Props) => {
               <p>{features[1].description}</p>
             </div>
           </div>
-          <div className="w-full">
+          <div className="hidden lg:block w-full">
             <Lottie animationData={trainBubbleAnimation} loop={true} />
           </div>
-          <div className="grid w-full auto-cols-fr grid-cols-1 gap-x-8 gap-y-12  md:gap-y-16 lg:gap-x-12">
+          <div className="grid w-full grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-1 md:gap-y-16 lg:grid-cols-1 lg:gap-x-12">
             <div className="text-center">
               <div className="rb-5 mb-5 md:mb-6">
                 <img
