@@ -207,8 +207,12 @@ const PricingPlan = ({
     },
   };
 
-  const handleSliderChange = (value: number) => {
-    setSliderValue(value);
+  const handleSliderChange = (value: number | number[]) => {
+    if (typeof value === "number") {
+      setSliderValue(value);
+    } else {
+      setSliderValue(value[0]);
+    }
   };
 
   return (
