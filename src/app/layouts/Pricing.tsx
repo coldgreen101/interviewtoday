@@ -174,14 +174,6 @@ const PricingPlan = ({
   billing: Billing;
 }) => {
   const marks = {
-    0: {
-      style: {
-        fontSize: "1rem",
-        fontWeight: 500,
-        color: "black",
-      },
-      label: "0",
-    },
     30: {
       style: {
         fontSize: "1rem",
@@ -245,8 +237,8 @@ const PricingPlan = ({
                 },
               }}
               marks={marks}
-              defaultValue={0}
-              min={0}
+              defaultValue={30}
+              min={30}
               max={50}
               step={null}
               dotStyle={{ display: "none" }}
