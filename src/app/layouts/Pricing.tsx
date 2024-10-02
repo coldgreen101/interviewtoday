@@ -117,15 +117,16 @@ export const Pricing17 = (props: Pricing17Props) => {
           <div className="order-first lg:order-last relative">
             <Tabs defaultValue={defaultTabValue}>
               <div className="flex justify-start lg:justify-end lg:absolute lg:top-[-100px] z-index-10">
-                <TabsList className="mb-12 w-fit p-1 bg-[#f2f2f2]">
+                <TabsList className="mb-12 w-fit p-1 bg-[#f2f2f2] rounded-xl">
                   {tabs.map((tab, index) => (
                     <TabsTrigger
                       key={index}
                       value={tab.value}
                       onClick={() => setActiveTab(tab.value)}
-                      className="border-none text-[#757575] font-semibold"
+                      className="border-none text-[#757575] font-semibold rounded-lg"
                       style={{
-                        color: activeTab === tab.value ? "#000000" : "#757575",
+                        color: activeTab === tab.value ? "#ffffff" : "#757575",
+                        backgroundColor: activeTab === tab.value ? '#000000' : "#efefef"
                       }}
                     >
                       {tab.tabName}
