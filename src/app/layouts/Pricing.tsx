@@ -217,10 +217,10 @@ const PricingPlan = ({
   };
 
   return (
-    <div className="flex h-full flex-col justify-between border border-border-primary px-6 py-8 md:p-8">
+    <div className="flex h-full flex-col justify-between border border-transparent rounded-3xl px-6 py-8 md:p-8 shadow-[0_0_42px_rgba(0,0,0,0.11)]">
       <div>
         <div className="flex items-center justify-between">
-          <div>
+          <div> 
             <h5 className="mb-2 text-xl font-bold md:text-2xl">
               {plan.planName}
             </h5>
