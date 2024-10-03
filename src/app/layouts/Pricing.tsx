@@ -73,7 +73,7 @@ export const Pricing17 = (props: Pricing17Props) => {
       <div className="container-fluid">
         <div className="mb-8 max-w-lg md:mb-10 lg:mb-12">
           <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-          <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-5xl lg:text-5xl">
+          <h2 className="rb-5 mb-3 text-5xl font-bold md:mb-4 md:text-5xl lg:text-5xl">
             {heading}
           </h2>
           <p className="md:text-md">{description}</p>
