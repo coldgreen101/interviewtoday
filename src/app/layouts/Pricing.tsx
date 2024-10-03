@@ -116,7 +116,7 @@ export const Pricing17 = (props: Pricing17Props) => {
 
           <div className="order-first lg:order-last relative">
             <Tabs defaultValue={defaultTabValue}>
-              <div className="flex justify-start lg:justify-end lg:absolute lg:top-[-100px] z-index-10">
+              <div className="flex justify-start lg:justify-end lg:absolute lg:top-[-170px] lg:right-0 z-index-10">
                 <TabsList className="mb-12 w-fit p-1 bg-[#f2f2f2] rounded-xl">
                   {tabs.map((tab, index) => (
                     <TabsTrigger
@@ -126,7 +126,8 @@ export const Pricing17 = (props: Pricing17Props) => {
                       className="border-none text-[#757575] font-semibold rounded-lg"
                       style={{
                         color: activeTab === tab.value ? "#ffffff" : "#757575",
-                        backgroundColor: activeTab === tab.value ? '#000000' : "#efefef"
+                        backgroundColor:
+                          activeTab === tab.value ? "#000000" : "#efefef",
                       }}
                     >
                       {tab.tabName}
@@ -228,7 +229,7 @@ const PricingPlan = ({
     <div className="flex h-full flex-col justify-between border border-transparent rounded-3xl px-6 py-8 md:p-8 shadow-[0_0_42px_rgba(0,0,0,0.11)]">
       <div>
         <div className="flex items-center justify-between">
-          <div> 
+          <div>
             <h5 className="mb-2 text-xl font-bold md:text-2xl">
               {plan.planName}
             </h5>
