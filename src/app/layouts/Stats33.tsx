@@ -109,8 +109,8 @@ const Stat = ({
             <h3 className="text-md font-bold leading-[1.4] md:text-xl">
               {card.title}
             </h3>
-            <p className="mt-2 mb-3">{card.description1}</p>
-            <p className="mt-2">{card.description2}</p>
+            <p className="mt-2 mb-3 font-medium">{card.description1}</p>
+            <p className="mt-2 font-medium">{card.description2}</p>
           </div>
         </div>
       ))}
