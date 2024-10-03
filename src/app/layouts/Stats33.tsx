@@ -96,6 +96,7 @@ const Stat = ({
           }`}
         >
           <p className="mb-5 text-6xl font-bold md:mb-6 md:text-8xl lg:text-8xl">
+            <span>+</span>
             <CountUp
               isCounting={isStatsVisible}
               start={0}
@@ -124,7 +125,7 @@ export const Stats33Defaults: Stats33Props = {
   stat: {
     statCards: [
       {
-        percentage: "30",
+        percentage: "34",
         title: "DHW & Company",
         description1:
           "Impact: 34% increase in staffing levels and 8% boost in guest satisfaction within two months.",
@@ -132,7 +133,7 @@ export const Stats33Defaults: Stats33Props = {
           "Benefit: Streamlined hiring processes allowing managers to focus on customer service rather than recruitment.",
       },
       {
-        percentage: "30",
+        percentage: "41",
         title: "Gellert Hospitality Group",
         description1:
           "Impact: Staffing levels rose by 41%, with sales growing 25.4% in the first year.",
