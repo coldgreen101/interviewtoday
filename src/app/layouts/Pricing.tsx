@@ -71,14 +71,14 @@ export const Pricing17 = (props: Pricing17Props) => {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container-fluid">
-        <div className=" mb-8 max-w-lg  md:mb-10 lg:mb-12">
+        <div className="mb-8 max-w-lg md:mb-10 lg:mb-12">
           <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
           <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-5xl lg:text-5xl">
             {heading}
           </h2>
           <p className="md:text-md">{description}</p>
         </div>
-        <div className="grid  w-full grid-cols-1 items-start gap-y-12 md:gap-x-12 md:gap-y-16 lg:grid-cols-2 lg:gap-x-20">
+        <div className="grid w-full grid-cols-1 items-start gap-y-12 md:gap-x-12 md:gap-y-16 lg:grid-cols-2 lg:gap-x-20">
           <div className="order-last lg:order-first grid grid-cols-1 gap-x-6 gap-y-8 py-2">
             <AnimatePresence initial={false} mode="wait">
               {tabs.map(
@@ -216,6 +216,14 @@ const PricingPlan = ({
     }
   };
 
+  const getButtonStyles = (billing: Billing) => {
+    if (billing === "monthly") {
+      return "w-full bg-[#F72485] text-white border-none rounded-full hover:bg-opacity-90 mt-8";
+    } else {
+      return "w-full bg-[#5A32B2] text-[#AAE5F8] border-none rounded-full hover:bg-opacity-90";
+    }
+  };
+
   return (
     <div className="flex h-full flex-col justify-between border border-transparent rounded-3xl px-6 py-8 md:p-8 shadow-[0_0_42px_rgba(0,0,0,0.11)]">
       <div>
@@ -232,7 +240,9 @@ const PricingPlan = ({
                 ? priceMap[sliderValue as keyof typeof priceMap].price
                 : plan.price}
               <span className="text-2xl font-bold md:text-2xl lg:text-2xl">
-                {billing === "monthly" ? "/ 10 interviews" : ""}
+                {billing === "monthly" && (
+                  <p className="text-base mt-1 font-medium">{plan.discount}</p>
+                )}
               </span>
             </h1>
             {billing === "yearly" && (
@@ -271,7 +281,6 @@ const PricingPlan = ({
             />
           </div>
         )}
-        <div className="my-8 h-px w-full shrink-0 bg-border" />
       </div>
 
       <div>
@@ -280,7 +289,7 @@ const PricingPlan = ({
           size={plan.button.size}
           iconRight={plan.button.iconRight}
           iconLeft={plan.button.iconLeft}
-          className="w-full bg-black text-white"
+          className={getButtonStyles(billing)}
         >
           {plan.button.title}
         </Button>
@@ -303,6 +312,7 @@ export const Pricing17Defaults: Pricing17Props = {
           planName: "Pay As You Go",
           description: "Ideal for ongoing recruitment needs",
           price: "$99",
+          discount: "10 interviews",
           features: [
             "Feature text goes here",
             "Feature text goes here",
