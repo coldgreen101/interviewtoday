@@ -34,7 +34,7 @@ export const Cta57 = (props: Cta57Props) => {
               viewport={{ once: true }}
               transition={{ type: "spring", bounce: 0 }}
               className={clsx(
-                "text-6xl font-bold md:text-6xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-b from-[var(--card-text)] to-[#9f79f4]",
+                "text-6xl font-bold leading-tight md:text-6xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-b from-[var(--card-text)] to-[#9f79f4]",
                 {
                   "mb-5 md:mb-6": index !== 0,
                 }
