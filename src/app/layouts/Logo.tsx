@@ -27,7 +27,7 @@ export const Logo3 = (props: Logo3Props) => {
         </h1>
       </div>
       <div className="flex items-center pt-7 md:pt-0">
-        {Array(2)
+        {Array(4)
           .fill(0)
           .map((_, index) => (
             <div
