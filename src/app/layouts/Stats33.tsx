@@ -119,7 +119,7 @@ const Stat = ({
 
 export const Stats33Defaults: Stats33Props = {
   tagline: "Real success stories",
-  heading: "How businesses like yours are winning",
+  heading: "How businesses like yours are winning with InterviewToday",
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   stat: {
     statCards: [
